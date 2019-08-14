@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <name>Seo Custom Page</name>
+    <version>1.0</version>
+    <author>lavrinyuk.serik@gmail.com</author>
+    <link>mailto:lavrinyuk.serik@gmail.com</link>
+    <code>Seo Custom Page</code>
+    <file path="catalog/controller/common/header.php">
+        <!-- v2.0.1.0 -->
+        <operation error="skip">
+            <search><![CDATA[$data['direction'] = $this->language->get('direction');]]></search>
+            <add position="after"><![CDATA[
+				/*CUSTOM SEO DATA*/
+					$this->load->model('module/seo_page');
+					$seo_data = $this->model_module_seo_page->getPageSeoData();
+					$lang_id = $this->config->get('config_language_id');
+					if($seo_data){
+						$data['title'] = $seo_data['item'][$lang_id]['meta_title'];
+						$data['robots'] = $seo_data['robots'];
+						$data['description'] = $seo_data['item'][$lang_id]['meta_description'];
+						$data['keywords'] = $seo_data['item'][$lang_id]['meta_keywords'];
+					}
+
+				/*end CUSTOM SEO DATA*/
+			]]></add>
+        </operation>
+    </file>
+</modification>

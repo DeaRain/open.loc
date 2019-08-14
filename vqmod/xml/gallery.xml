@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <id>Gallery</id>
+    <version>1</version>
+    <vqmver required="true">1.0.0</vqmver>
+    <author>Sergo</author>
+    <file path="catalog/language/russian/common/" name="footer.php">
+        <operation error="skip">
+            <search position="after"><![CDATA[
+                <?php
+            ]]></search>
+            <add>
+                <![CDATA[
+                    $_['text_gallery']  = 'Галерея';
+                ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="catalog/language/english/common/" name="footer.php">
+        <operation error="skip">
+            <search position="after"><![CDATA[
+                <?php
+            ]]></search>
+            <add>
+                <![CDATA[
+                    $_['text_gallery']  = 'Gallery';
+                ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="catalog/language/ukrainian/common/" name="footer.php">
+        <operation error="skip">
+            <search position="after"><![CDATA[
+                <?php
+            ]]></search>
+            <add>
+                <![CDATA[
+                    $_['text_gallery']  = 'Галерея';
+                ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="catalog/controller/common/" name="footer.php">
+        <operation error="skip">
+            <search position="before"><![CDATA[
+                $this->load->model('catalog/information');
+            ]]></search>
+            <add>
+                <![CDATA[
+                    $data['text_gallery'] = $this->language->get('text_gallery');
+                    $data['gallery'] = $this->url->link('information/gallery', '', 'SSL');
+                ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/common/" name="footer.tpl">
+        <operation error="skip">
+            <search position="after"><![CDATA[
+                <li><a href="<?php echo $special; ?>"><?php echo $text_special; ?></a></li>
+            ]]></search>
+            <add>
+                <![CDATA[
+                    <li><a href="<?php echo $gallery; ?>"><?php echo $text_gallery; ?></a></li>
+                ]]>
+            </add>
+        </operation>
+    </file>
+</modification>
