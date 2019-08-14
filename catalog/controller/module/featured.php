@@ -57,9 +57,7 @@ class ControllerModuleFeatured extends Controller {
 						$rating = false;
 					}
 
-                    $data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($product_id);
-//                    echo '<pre>'.var_dump($data['attribute_groups'][0]['attribute'])."</pre>";
-                    $attributes = $data['attribute_groups'][0]['attribute'];
+
                     $data['products'][] = array(
 						'product_id'  => $product_info['product_id'],
 						'thumb'       => $image,
@@ -70,7 +68,6 @@ class ControllerModuleFeatured extends Controller {
 						'tax'         => $tax,
 						'rating'      => $rating,
 						'href'        => $this->url->link('product/product', 'product_id=' . $product_info['product_id']),
-                        'attributes'  => $attributes,
                         'status_new'  => $product_info['status_new']
 					);
 				}

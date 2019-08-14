@@ -420,3 +420,13 @@
 2019-08-14 19:05:51 - PHP Notice:  Undefined variable: lt_newsletter in /var/www/open.loc/html/catalog/view/theme/default/template/common/footer.tpl on line 3
 2019-08-14 19:08:24 - PHP Notice:  Undefined variable: lt_newsletter in /var/www/open.loc/html/catalog/view/theme/default/template/common/footer.tpl on line 3
 2019-08-14 19:09:39 - PHP Notice:  Undefined variable: lt_newsletter in /var/www/open.loc/html/catalog/view/theme/default/template/common/footer.tpl on line 3
+2019-08-14 20:32:18 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
+2019-08-14 20:32:18 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
+2019-08-14 20:35:26 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
+2019-08-14 20:35:26 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
+2019-08-14 20:36:53 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
+2019-08-14 20:36:53 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
+2019-08-14 20:37:16 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
+2019-08-14 20:37:16 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
+2019-08-14 20:38:04 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
+2019-08-14 20:38:04 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62

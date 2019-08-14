@@ -323,14 +323,15 @@
 											<?php foreach( $filter['options'] as $option_id => $option ) { if( $option['name'] === '' || isset( $options_tmp[$option['key']] ) ) continue; $options_tmp[$option['key']] = true; ?>
 												<?php echo $_position == 'content_top' ? '<div class="mfilter-tb">' : ''; ?>
 												<div class="mfilter-option mfilter-tb-as-tr">
-													<div class="mfilter-tb-as-td mfilter-col-input">
+
 														<input 
 															id="mfilter-opts-attribs-<?php echo (int) $_idx; ?>-<?php echo $base_id; ?>-<?php echo $option['key']; ?>" 
 															name="<?php echo $filter['seo_name']; ?>"
 															type="<?php echo $_tmp_type == 'image_list_checkbox' ? 'checkbox' : ( $_tmp_type == 'image_list_radio' ? 'radio' : $_tmp_type ); ?>"
 															<?php echo ! empty( $params[$filter['seo_name']] ) && in_array( $option['value'], $params[$filter['seo_name']] ) ? ' checked="checked"' : ''; ?>
 															value="<?php echo str_replace( '"', '&quot;', $option['value'] ); ?>" />
-													</div>
+
+
 													<label class="mfilter-tb-as-td" for="mfilter-opts-attribs-<?php echo (int) $_idx; ?>-<?php echo $base_id; ?>-<?php echo $option['key']; ?>">
 														<?php if( in_array( $_tmp_type, array( 'image_list_radio', 'image_list_checkbox' ) ) ) { ?>
 															<img src="<?php echo $option['image']; ?>" /> <?php echo $option['name']; ?>
@@ -372,7 +373,9 @@
 															style="display:none"
 															<?php echo ! empty( $params[$filter['seo_name']] ) && in_array( $option['value'], $params[$filter['seo_name']] ) ? ' checked="checked"' : ''; ?>
 															value="<?php echo str_replace( '"', '&quot;', $option['value'] ); ?>" />
-														<label for="mfilter-opts-attribs-<?php echo (int) $_idx; ?>-<?php echo $base_id; ?>-<?php echo $option['key']; ?>" title="<?php echo $option['name']; ?>"><img src="<?php echo $option['image']; ?>" /></label>
+														<label for="mfilter-opts-attribs-<?php echo (int) $_idx; ?>-<?php echo $base_id; ?>-<?php echo $option['key']; ?>" style="background: <?php echo $option['name']; ?>" title="<?php echo $option['name']; ?>">
+<!--                                                            <img src="--><?php //echo $option['image']; ?><!--" />-->
+                                                        </label>
 													</li>
 												<?php } ?>
 											</ul>
