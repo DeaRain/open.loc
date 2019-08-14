@@ -1,369 +1,62 @@
 <?php  
 class ControllerModuleMegaFilter extends Controller {
-	
-	private static $_warningRendered = false;
-	
-	private function _keysByAttribs( $attributes ) {
-		$keys = array();
-		
-		foreach( $attributes as $key => $attribute ) {
-			$keys[$attribute['seo_name']] = $key;
-		}
-		
-		return $keys;
-	}
-	
-	private function _setCache( $name, $value ) {
-		if( ! is_dir( DIR_SYSTEM . 'cache_mfp' ) || ! is_writable( DIR_SYSTEM . 'cache_mfp' ) ) return false;
-		
-		file_put_contents( DIR_SYSTEM . 'cache_mfp/' . $name, serialize( $value ) );
-		file_put_contents( DIR_SYSTEM . 'cache_mfp/' . $name . '.time', time() + 60 * 60 * 24 );
-		
-		return true;
-	}
-	
-	private function _getCache( $name ) {
-		$dir		= DIR_SYSTEM . 'cache_mfp/';
-		$file		= $dir . $name;
-		$file_time	= $file . '.time';
-		
-		if( ! file_exists( $file ) ) {
-			return NULL;
-		}
-		
-		if( ! file_exists( $file_time ) ) {
-			return NULL;
-		}
-		
-		$time = (float) file_get_contents( $file_time );
-		
-		if( $time < time() ) {
-			@ unlink( $file );
-			@ unlink( $file_time );
-			
-			return false;
-		}
-		
-		return unserialize( file_get_contents( $file ) );
-	}
-	
-	private function _renderWarning( $warning, $links = false ) {
-		if( self::$_warningRendered ) {
-			return;
-		}
-		
-		echo '<div style="padding: 10px; text-align: center">';
-		echo $warning;
-		
-		if( $links ) {
-			echo '<br /><br />';
-			echo 'Please <a href="https://github.com/vqmod/vqmod/releases/tag/v2.5.1-opencart.zip" target="_blank">download VQMod</a> and read ';
-			echo '<a href="https://github.com/vqmod/vqmod/wiki/Installing-vQmod-on-OpenCart" target="_blank">How to installl VQMod</a>';
-		}
-		
-		echo '</div>';
-		
-		self::$_warningRendered = true;
-	}
-	
-	public function index( $setting ) {		
-		if( ! class_exists( 'VQMod' ) ) {
-			$this->_renderWarning( 'Mega Filter PRO to work properly requires an installed VQMod.', true );
-			
-			return;
-		}
-		
-		if( version_compare( VQMod::$_vqversion, '2.5.1', '<' ) ) {
-			$this->_renderWarning( 'Mega Filter PRO to work properly requires VQMod in version 2.5.1 or later.<br />Your version of VQMod is too old. Please upgrade it to the latest version.', true );
-			
-			return;
-		}
-		
-		if( ! isset( $setting['_idx'] ) ) {
-			$this->_renderWarning( 'There is a conflict Mega Filter PRO with your template or other extension - <a href="http://mfp.ocdemo.eu/" target="_blank" style="text-decoration:underline">please find a solution on our forum</a>.' );
-			
-			return;
-		}
-		
-		if( empty( $setting[$setting['_idx']]['status'] ) ) {
-			return;
-		}
-		
-		if( ! in_array( $this->config->get( 'config_store_id' ), $setting[$setting['_idx']]['store_id'] ) ) {
-			return;
-		}
-		
-		if( empty( $setting['base_attribs'] ) ) {
-			$setting['base_attribs'] = empty( $setting[$setting['_idx']]['base_attribs'] ) ? array() : $setting[$setting['_idx']]['base_attribs'];
-		}
-		
-		if( empty( $setting['attribs'] ) ) {
-			$setting['attribs'] = empty( $setting[$setting['_idx']]['attribs'] ) ? array() : $setting[$setting['_idx']]['attribs'];
-		}
-		
-		if( empty( $setting['options'] ) ) {
-			$setting['options'] = empty( $setting[$setting['_idx']]['options'] ) ? array() : $setting[$setting['_idx']]['options'];
-		}
-		
-		if( empty( $setting['filters'] ) ) {
-			$setting['filters'] = empty( $setting[$setting['_idx']]['filters'] ) ? array() : $setting[$setting['_idx']]['filters'];
-		}
-		
-		if( empty( $setting['categories'] ) ) {
-			$setting['categories'] = empty( $setting[$setting['_idx']]['categories'] ) ? array() : $setting[$setting['_idx']]['categories'];
-		}
-		
-		/**
-		 * Ustawienia
-		 */
-		$settings	= $this->config->get('mega_filter_settings');
-		
-		/**
-		 * Sprawdź szablon
-		 */
-		if( isset( $setting[$setting['_idx']]['layout_id'] ) && is_array( $setting[$setting['_idx']]['layout_id'] ) ) {
-			/**
-			 * Sprawdź czy zdefiniowano kategorię 
-			 */
-			if( in_array( $settings['layout_c'], $setting[$setting['_idx']]['layout_id'] ) && isset( $this->request->get['path'] ) ) {				
-				/**
-				* Pokaż w kategoriach 
-				*/
-				if( ! empty( $setting[$setting['_idx']]['category_id'] ) ) {
-					$categories		= explode( '_', $this->request->get['path'] );
-					
-					if( ! empty( $setting[$setting['_idx']]['category_id_with_childs'] ) ) {
-						$is = false;
-						
-						foreach( $categories as $category_id ) {
-							if( in_array( $category_id, $setting[$setting['_idx']]['category_id'] ) ) {
-								$is = true; break;
-							}
-						}
-						
-						if( ! $is )
-							return;
-					} else {
-						$category_id	= end( $categories );
-						
-						if( ! in_array( $category_id, $setting[$setting['_idx']]['category_id'] ) )
-							return false;
-					}
-				}
+
+				private function _removeMfpFromUrl( $url ) {
+					if( false !== ( $mfpPos = mb_strpos( $url, '?mfp=', 0, 'utf8' ) ) ) {
+						$before = $mfpPos ? mb_substr( $url, 0, $mfpPos, 'utf8' ) : '';
+						$after	= '';
 				
-				/**
-				 * Ukryj w kategoriach 
-				 */
-				if( ! empty( $setting[$setting['_idx']]['hide_category_id'] ) ) {
-					$categories		= explode( '_', $this->request->get['path'] );
-					
-					if( ! empty( $setting[$setting['_idx']]['hide_category_id_with_childs'] ) ) {						
-						foreach( $categories as $category_id ) {
-							if( in_array( $category_id, $setting[$setting['_idx']]['hide_category_id'] ) ) {
-								return;
-							}
+						if( false !== ( $pos = mb_strpos( $url, '&', $mfpPos+1, 'utf8' ) ) ) {
+							$after = '?' . mb_substr( $url, $pos+1, NULL, 'utf8' );
 						}
-					} else {
-						$category_id	= array_pop( $categories );
-
-						if( in_array( $category_id, $setting[$setting['_idx']]['hide_category_id'] ) ) {
-							return;
+				
+						$url = $before . $after;
+					} else if( false !== ( $mfpPos = mb_strpos( $url, '&mfp=', 0, 'utf8' ) ) ) {
+						$before = $mfpPos ? mb_substr( $url, 0, $mfpPos, 'utf8' ) : '';
+						$after	= '';
+				
+						if( false !== ( $pos = mb_strpos( $url, '&', $mfpPos+1, 'utf8' ) ) ) {
+							$after = '?' . mb_substr( $url, $pos+1, NULL, 'utf8' );
 						}
+				
+						$url = $before . $after;
+					} else if( false !== ( $mfpPos = mb_strpos( $url, 'mfp,', 0, 'utf8' ) ) ) {
+						$before = $mfpPos ? mb_substr( $url, 0, $mfpPos, 'utf8' ) : '';
+						$after	= '';
+				
+						if( false !== ( $pos = mb_strpos( $url, '?', $mfpPos+1, 'utf8' ) ) ) {
+							$after = mb_substr( $url, $pos, NULL, 'utf8' );
+						} else if( false !== ( $pos = mb_strpos( $url, '&', $mfpPos+1, 'utf8' ) ) ) {
+							$after = '?' . mb_substr( $url, $pos+1, NULL, 'utf8' );
+						} else if( false !== ( $pos = mb_strpos( $url, '/', $mfpPos+1, 'utf8' ) ) ) {
+							$after = mb_substr( $url, $mfpPos, $pos, 'utf8' );
+						}
+				
+						$url = $before . $after;
 					}
+				
+					return $url;
 				}
-			}
-		}
-		
-		/**
-		 * Sprawdź sklep 
-		 */
-		if( isset( $setting[$setting['_idx']]['store_id'] ) && is_array( $setting[$setting['_idx']]['store_id'] ) && ! in_array( $this->config->get('config_store_id'), $setting[$setting['_idx']]['store_id'] ) ) {
-			return;
-		}
-		
-		/**
-		 * Sprawdź grupę
-		 */
-		if( ! empty( $setting[$setting['_idx']]['customer_groups'] ) ) {
-			$customer_group_id = $this->customer->isLogged() ? $this->customer->getGroupId() : $this->config->get( 'config_customer_group_id' );
 			
-			if( ! in_array( $customer_group_id, $setting[$setting['_idx']]['customer_groups'] ) ) {
-				return;
-			}
-		}
-		
-		/**
-		 * Załaduj język 
-		 */
-		$data = $this->language->load('module/mega_filter');
-		
-		/**
-		 * Ustaw tytuł 
-		 */
-		if( isset( $setting[$setting['_idx']]['title'][$this->config->get('config_language_id')] ) ) {
-			$data['heading_title'] = $setting[$setting['_idx']]['title'][$this->config->get('config_language_id')];
-		}
-		
-		/**
-		 * Załaduj modele 
-		 */
+	
+	public function index( $setting ) {
 		$this->load->model('module/mega_filter');
-		//$t=microtime(true);
-		$core = MegaFilterCore::newInstance( $this, NULL );
-		$cache = NULL;
 		
-		if( ! empty( $settings['cache_enabled'] ) ) {
-			$cache = 'idx.' . $setting['_idx'] . '.' . $core->cacheName();
+		if( ! class_exists( 'MegaFilterModule' ) ) {
+			return '';
 		}
 		
-		/**
-		 * Lista atrybutów 
-		 */
-		if( ! $cache || NULL == ( $attributes = $this->_getCache( $cache ) ) ) {
-			$attributes	= $this->model_module_mega_filter->getAttributes( 
-				$core,
-				$setting['_idx'],
-				$setting['base_attribs'], 
-				$setting['attribs'], 
-				$setting['options'], 
-				$setting['filters'],
-				empty( $setting['categories'] ) ? array() : $setting['categories']
-			);
-			
-			if( ! empty( $settings['cache_enabled'] ) ) {
-				$this->_setCache( $cache, $attributes );
-			}
-		}
-		//echo microtime(true)-$t;
-		/**
-		 * Pobierz klucze wg nazw 
-		 */
-		$keys		= $this->_keysByAttribs( $attributes );
-		
-		/**
-		 * Aktualna trasa 
-		 */
-		$route		= isset( $this->request->get['route'] ) ? $this->request->get['route'] : NULL;
-		
-		/**
-		 * Usuń listę branż dla widoku branż 
-		 */
-		if( in_array( $route, array( 'product/manufacturer', 'product/manufacturer/info' ) ) && isset( $keys['manufacturers'] ) ) {
-			unset( $attributes[$keys['manufacturers']] );
-		}
-		
-		if( in_array( $route, array( 'product/search' ) ) && empty( $this->request->get['search'] ) && empty( $this->request->get['tag'] ) ) {
-			$attributes = array();
-		}
-		
-		if( ! $attributes ) {
-			return;
-		}
-		
-		//$scheme_find = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? 'http://' : 'https://';
-		//$scheme_replace = $scheme_find == 'https://' ? 'http://' : 'https://';
-		
-		$mijo_shop	= class_exists( 'MijoShop' ) ? true : false;
-		$joo_cart	= defined( 'JOOCART_SITE_URL' ) ? array(
-			'site_url' => $this->parseUrl( JOOCART_SITE_URL ),
-			'main_url' => $this->parseUrl( $this->url->link( '', '', 'SSL' ) )
-		) : false;
-		
-		$is_mobile = Mobile_Detect_MFP::create()->isMobile();
-		
-		if( $setting['position'] == 'content_top' && ! empty( $settings['change_top_to_column_on_mobile'] ) && $is_mobile ) {
-			$setting['position'] = 'column_left';
-			$data['hide_container'] = true;
-		}
-		
-		$data['direction']			= $this->language->get('direction');
-		$data['ajaxInfoUrl']		= $this->parseUrl( $this->url->link( 'module/mega_filter/ajaxinfo', '', 'SSL' ) );
-		$data['ajaxResultsUrl']		= $this->parseUrl( $this->url->link( 'module/mega_filter/results', '', 'SSL' ) );
-		$data['ajaxCategoryUrl']	= $this->parseUrl( $this->url->link( 'module/mega_filter/categories', '', 'SSL' ) );
-			
-		//$data['ajaxInfoUrl'] = str_replace( $scheme_find, $scheme_replace, $data['ajaxInfoUrl'] );
-		//$data['ajaxResultsUrl'] = str_replace( $scheme_find, $scheme_replace, $data['ajaxResultsUrl'] );
-		//$data['ajaxCategoryUrl'] = str_replace( $scheme_find, $scheme_replace, $data['ajaxCategoryUrl'] );
-		
-		//print_r( parse_url( $data['ajaxInfoUrl'] ) );die();
-		
-		$data['is_mobile']		= $is_mobile;
-		$data['mijo_shop']		= $mijo_shop;
-		$data['joo_cart']		= $joo_cart;
-		$data['filters']		= $attributes;
-		$data['settings']		= $settings;
-		$data['params']			= $core->getParseParams();
-		$data['price']			= $core->getMinMaxPrice();
-		$data['_idx']			= $setting['_idx'];
-		$data['_route']			= base64_encode( $core->route() );
-		$data['_routeProduct']	= base64_encode( 'product/product' );
-		$data['_routeCategory']	= base64_encode( 'product/category' );
-		$data['_routeHome']		= base64_encode( 'common/home' );
-		$data['_position']		= $setting['position'];
-		$data['getSymbolLeft']	= $this->currency->getSymbolLeft();
-		$data['getSymbolRight']	= $this->currency->getSymbolRight();
-		$data['requestGet']		= $this->request->get;
-		$data['_horizontalInline']	= $setting['position'] == 'content_top' && ! empty( $setting[$setting['_idx']]['inline_horizontal'] ) ? true : false;
-		$data['smp']				= array(
-			'isInstalled'			=> $this->config->get( 'smp_is_install' ),
-			'disableConvertUrls'	=> $this->config->get( 'smp_disable_convert_urls' )
-		);
-		$data['seo']			= $this->config->get( 'mega_filter_seo' );
-		$data['seo_alias']		= empty( $this->request->get['mfp_seo_alias'] ) ? '' : $this->request->get['mfp_seo_alias'];
-		$data['_v'] = $this->config->get('mfilter_version') ? $this->config->get('mfilter_version') : '1';
-		
-		if( $mijo_shop ) {
-			MijoShop::getClass('base')->addHeader(JPATH_MIJOSHOP_OC . '/catalog/view/javascript/mf/iscroll.js', false);
-			MijoShop::getClass('base')->addHeader(JPATH_MIJOSHOP_OC . '/catalog/view/javascript/mf/mega_filter.js', false);
-
-//			if( file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/stylesheet/mf/style.css') ) {
-//				MijoShop::get()->addHeader(JPATH_MIJOSHOP_OC.'/catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/mf/style.css');
-//			} else {
-//				MijoShop::get()->addHeader(JPATH_MIJOSHOP_OC.'/catalog/view/theme/default/stylesheet/mf/style.css');
-//			}
-			
-			MijoShop::get()->addHeader(JPATH_MIJOSHOP_OC.'/catalog/view/theme/default/stylesheet/mf/style-2.css');
-		} else {
-			$this->document->addScript('catalog/view/javascript/mf/jquery-ui.min.js?v'.$data['_v']);
-			$this->document->addScript('catalog/view/javascript/mf/iscroll.js?v'.$data['_v']);
-			$this->document->addScript('catalog/view/javascript/mf/mega_filter.js?v'.$data['_v']);
-
-			$this->document->addStyle('catalog/view/theme/default/stylesheet/mf/jquery-ui.min.css?v'.$data['_v']);
-			
-//			if( file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/stylesheet/mf/style.css') ) {
-//				$this->document->addStyle('catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/mf/style.css?v'.$data['_v']);
-//			} else {
-//				$this->document->addStyle('catalog/view/theme/default/stylesheet/mf/style.css?v'.$data['_v']);
-//			}
-			
-			$this->document->addStyle('catalog/view/theme/default/stylesheet/mf/style-2.css?v'.$data['_v']);
-		}
-
-		/**
-		 * Szablon 
-		 */
-		if( file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/mega_filter.tpl') ) {
-			return $this->load->view($this->config->get('config_template') . '/template/module/mega_filter.tpl', $data);
-		} else {
-			return $this->load->view('default/template/module/mega_filter.tpl', $data);
-		}
+		return MegaFilterModule::newInstance( $this )->render( $setting );
 	}
 	
-	private function parseUrl( $url ) {
-		$scheme		= isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? 'https' : 'http';
-		$host		= isset( $_SERVER['HTTP_HOST'] ) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'];
-		$parse		= parse_url( $url );
-		
-		return $scheme . '://' . $host . $parse['path'] . ( empty( $parse['query'] ) ? '' : '?' . str_replace( '&amp;', '&', $parse['query'] ) );
-	}
-	
-	public function ajaxinfo() {
+	public function getajaxinfo() {
 		$this->load->model('module/mega_filter');
 		
 		$idx = 0;
 		
-		if( isset( $this->request->get['mfilterIdx'] ) )
+		if( isset( $this->request->get['mfilterIdx'] ) ) {
 			$idx = (int) $this->request->get['mfilterIdx'];
+		}
 		
 		$baseTypes = array( 'stock_status', 'manufacturers', 'rating', 'attributes', 'options', 'filters' );
 		
@@ -375,10 +68,22 @@ class ControllerModuleMegaFilter extends Controller {
 			unset( $baseTypes[$idx2] );
 		}
 		
-		echo json_encode( MegaFilterCore::newInstance( $this, NULL )->getJsonData($baseTypes, $idx) );
+		/**
+		 * Ustawienia
+		 */
+		$settings	= $this->config->get('mega_filter_settings');
+		$setting	= $this->config->get('mega_filter_module');
+		
+		if( isset( $setting[$idx]['configuration'] ) ) {
+			foreach( $setting[$idx]['configuration'] as $k => $v ) {
+				$settings[$k] = $v;
+			}
+		}
+		
+		echo '<div id="mfilter-json">' . base64_encode( json_encode( MegaFilterCore::newInstance( $this, NULL, array(), $settings )->getJsonData($baseTypes, $idx) ) ) . '</div>';
 	}
 	
-	public function categories() {
+	public function getcategories() {
 		$cats = array();
 		
 		if( ! empty( $this->request->post['cat_id'] ) ) {
@@ -408,7 +113,7 @@ class ControllerModuleMegaFilter extends Controller {
 		$url = '';
 
 				if( ! empty( $this->request->get['mfp'] ) ) {
-					$url .= '&mfp=' . $this->request->get['mfp'];
+					$url .= '&mfp=' . urlencode( $this->request->get['mfp'] );
 				}
 			
 		
@@ -527,26 +232,23 @@ class ControllerModuleMegaFilter extends Controller {
 				'product_id'  => $result['product_id'],
 				'thumb'       => $image,
 				'name'        => $result['name'],
-				'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 100) . '..',
+				'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
 				'price'       => $price,
 				'special'     => $special,
 				'tax'         => $tax,
+				'minimum'     => isset( $result['minimum'] ) && $result['minimum'] > 0 ? $result['minimum'] : 1,
 				'rating'      => $result['rating'],
 				'reviews'     => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
-				'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
+				'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url),
 			);
 		}
 					
 		$url = '';
 
 				if( ! empty( $this->request->get['mfp'] ) ) {
-					$url .= '&mfp=' . $this->request->get['mfp'];
+					$url .= '&mfp=' . urlencode( $this->request->get['mfp'] );
 				}
 			
-			
-		if( ! empty( $this->request->get['mfp'] ) ) {
-			$url .= '&mfp=' . $this->request->get['mfp'];
-		}
 						
 		$data['sorts'] = array();
 			
@@ -609,13 +311,9 @@ class ControllerModuleMegaFilter extends Controller {
 		$url = '';
 
 				if( ! empty( $this->request->get['mfp'] ) ) {
-					$url .= '&mfp=' . $this->request->get['mfp'];
+					$url .= '&mfp=' . urlencode( $this->request->get['mfp'] );
 				}
 			
-			
-		if( ! empty( $this->request->get['mfp'] ) ) {
-			$url .= '&mfp=' . $this->request->get['mfp'];
-		}
 						
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
@@ -642,7 +340,7 @@ class ControllerModuleMegaFilter extends Controller {
 		$url = '';
 
 				if( ! empty( $this->request->get['mfp'] ) ) {
-					$url .= '&mfp=' . $this->request->get['mfp'];
+					$url .= '&mfp=' . urlencode( $this->request->get['mfp'] );
 				}
 			
 										
@@ -689,6 +387,8 @@ class ControllerModuleMegaFilter extends Controller {
 		$data['order'] = $order;
 		$data['limit'] = $limit;
 
+		$data['continue'] = $this->url->link('common/home');
+
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');
@@ -702,42 +402,52 @@ class ControllerModuleMegaFilter extends Controller {
 		if( file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/special.tpl') ) {
 
 				if( isset( $this->request->get['mfilterAjax'] ) ) {
-					$settings	= $this->config->get('mega_filter_settings');
-					$baseTypes	= array( 'stock_status', 'manufacturers', 'rating', 'attributes', 'price', 'options', 'filters' );
-		
-					if( isset( $this->request->get['mfilterBTypes'] ) ) {
-						$baseTypes = explode( ',', $this->request->get['mfilterBTypes'] );
-					}
-					
-					if( ! empty( $settings['calculate_number_of_products'] ) || in_array( 'categories:tree', $baseTypes ) ) {
-						if( empty( $settings['calculate_number_of_products'] ) ) {
-							$baseTypes = array( 'categories:tree' );
+					$this->load->model( 'module/mega_filter' );
+				
+					if( class_exists( 'MegaFilterCore' ) ) {
+						$calculate_number_of_products = false;
+				
+						$settings = $this->config->get('mega_filter_module');
+						$settings = isset( $settings[$this->request->get['mfilterIdx']] ) && isset( $this->request->get['mfilterIdx'] ) 
+							? $settings[$this->request->get['mfilterIdx']] : array();
+				
+						if( ! empty( $settings['configuration'] ) ) {
+							$calculate_number_of_products = ! empty( $settings['configuration']['calculate_number_of_products'] );
+						} else {
+							$settings = $this->config->get('mega_filter_settings');
+							$calculate_number_of_products = ! empty( $settings['calculate_number_of_products'] );
 						}
 				
-						$this->load->model( 'module/mega_filter' );
-
-						$idx = 0;
-		
-						if( isset( $this->request->get['mfilterIdx'] ) )
-							$idx = (int) $this->request->get['mfilterIdx'];
-						
-						$data['mfilter_json'] = json_encode( MegaFilterCore::newInstance( $this, NULL )->getJsonData($baseTypes, $idx) );
-					}
+						$seo_settings	= $this->config->get('mega_filter_seo');
 				
-					$data['header'] = $data['column_left'] = $data['column_right'] = $data['content_top'] = $data['content_bottom'] = $data['footer'] = '';
+						$baseTypes	= array( 'stock_status', 'manufacturers', 'rating', 'attributes', 'price', 'options', 'filters' );
+
+						if( isset( $this->request->get['mfilterBTypes'] ) ) {
+							$baseTypes = explode( ',', $this->request->get['mfilterBTypes'] );
+						}
+
+						if( ! empty( $seo_settings['enabled'] ) || $calculate_number_of_products || in_array( 'categories:tree', $baseTypes ) ) {
+							if( ! $calculate_number_of_products ) {
+								$baseTypes = array( 'categories:tree' );
+							}
+
+							$this->load->model( 'module/mega_filter' );
+
+							$idx = 0;
+
+							if( isset( $this->request->get['mfilterIdx'] ) )
+								$idx = (int) $this->request->get['mfilterIdx'];
+
+							$data['mfilter_json'] = json_encode( MegaFilterCore::newInstance( $this, NULL )->getJsonData($baseTypes, $idx) );
+						}
+
+						$data['header'] = $data['column_left'] = $data['column_right'] = $data['content_top'] = $data['content_bottom'] = $data['footer'] = '';
+					}
 				}
 				
 				if( ! empty( $data['breadcrumbs'] ) && ! empty( $this->request->get['mfp'] ) ) {
 					foreach( $data['breadcrumbs'] as $mfK => $mfBreadcrumb ) {
-						$mfReplace = preg_replace( '/path\[[^\]]+\],?/', '', $this->request->get['mfp'] );
-						$mfFind = ( mb_strpos( $mfBreadcrumb['href'], '?mfp=', 0, 'utf-8' ) !== false ? '?mfp=' : '&mfp=' );
-						
-						$data['breadcrumbs'][$mfK]['href'] = str_replace(array(
-							$mfFind . $this->request->get['mfp'],
-							'&amp;mfp=' . $this->request->get['mfp'],
-							$mfFind . urlencode( $this->request->get['mfp'] ),
-							'&amp;mfp=' . urlencode( $this->request->get['mfp'] )
-						), $mfReplace ? $mfFind . $mfReplace : '', $mfBreadcrumb['href'] );
+						$data['breadcrumbs'][$mfK]['href'] = $this->_removeMfpFromUrl( $data['breadcrumbs'][$mfK]['href'] );
 					}
 				}
 			
@@ -745,42 +455,52 @@ class ControllerModuleMegaFilter extends Controller {
 		} else {
 
 				if( isset( $this->request->get['mfilterAjax'] ) ) {
-					$settings	= $this->config->get('mega_filter_settings');
-					$baseTypes	= array( 'stock_status', 'manufacturers', 'rating', 'attributes', 'price', 'options', 'filters' );
-		
-					if( isset( $this->request->get['mfilterBTypes'] ) ) {
-						$baseTypes = explode( ',', $this->request->get['mfilterBTypes'] );
-					}
-					
-					if( ! empty( $settings['calculate_number_of_products'] ) || in_array( 'categories:tree', $baseTypes ) ) {
-						if( empty( $settings['calculate_number_of_products'] ) ) {
-							$baseTypes = array( 'categories:tree' );
+					$this->load->model( 'module/mega_filter' );
+				
+					if( class_exists( 'MegaFilterCore' ) ) {
+						$calculate_number_of_products = false;
+				
+						$settings = $this->config->get('mega_filter_module');
+						$settings = isset( $settings[$this->request->get['mfilterIdx']] ) && isset( $this->request->get['mfilterIdx'] ) 
+							? $settings[$this->request->get['mfilterIdx']] : array();
+				
+						if( ! empty( $settings['configuration'] ) ) {
+							$calculate_number_of_products = ! empty( $settings['configuration']['calculate_number_of_products'] );
+						} else {
+							$settings = $this->config->get('mega_filter_settings');
+							$calculate_number_of_products = ! empty( $settings['calculate_number_of_products'] );
 						}
 				
-						$this->load->model( 'module/mega_filter' );
-
-						$idx = 0;
-		
-						if( isset( $this->request->get['mfilterIdx'] ) )
-							$idx = (int) $this->request->get['mfilterIdx'];
-						
-						$data['mfilter_json'] = json_encode( MegaFilterCore::newInstance( $this, NULL )->getJsonData($baseTypes, $idx) );
-					}
+						$seo_settings	= $this->config->get('mega_filter_seo');
 				
-					$data['header'] = $data['column_left'] = $data['column_right'] = $data['content_top'] = $data['content_bottom'] = $data['footer'] = '';
+						$baseTypes	= array( 'stock_status', 'manufacturers', 'rating', 'attributes', 'price', 'options', 'filters' );
+
+						if( isset( $this->request->get['mfilterBTypes'] ) ) {
+							$baseTypes = explode( ',', $this->request->get['mfilterBTypes'] );
+						}
+
+						if( ! empty( $seo_settings['enabled'] ) || $calculate_number_of_products || in_array( 'categories:tree', $baseTypes ) ) {
+							if( ! $calculate_number_of_products ) {
+								$baseTypes = array( 'categories:tree' );
+							}
+
+							$this->load->model( 'module/mega_filter' );
+
+							$idx = 0;
+
+							if( isset( $this->request->get['mfilterIdx'] ) )
+								$idx = (int) $this->request->get['mfilterIdx'];
+
+							$data['mfilter_json'] = json_encode( MegaFilterCore::newInstance( $this, NULL )->getJsonData($baseTypes, $idx) );
+						}
+
+						$data['header'] = $data['column_left'] = $data['column_right'] = $data['content_top'] = $data['content_bottom'] = $data['footer'] = '';
+					}
 				}
 				
 				if( ! empty( $data['breadcrumbs'] ) && ! empty( $this->request->get['mfp'] ) ) {
 					foreach( $data['breadcrumbs'] as $mfK => $mfBreadcrumb ) {
-						$mfReplace = preg_replace( '/path\[[^\]]+\],?/', '', $this->request->get['mfp'] );
-						$mfFind = ( mb_strpos( $mfBreadcrumb['href'], '?mfp=', 0, 'utf-8' ) !== false ? '?mfp=' : '&mfp=' );
-						
-						$data['breadcrumbs'][$mfK]['href'] = str_replace(array(
-							$mfFind . $this->request->get['mfp'],
-							'&amp;mfp=' . $this->request->get['mfp'],
-							$mfFind . urlencode( $this->request->get['mfp'] ),
-							'&amp;mfp=' . urlencode( $this->request->get['mfp'] )
-						), $mfReplace ? $mfFind . $mfReplace : '', $mfBreadcrumb['href'] );
+						$data['breadcrumbs'][$mfK]['href'] = $this->_removeMfpFromUrl( $data['breadcrumbs'][$mfK]['href'] );
 					}
 				}
 			

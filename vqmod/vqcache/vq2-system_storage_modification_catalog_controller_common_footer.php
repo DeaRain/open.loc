@@ -1,11 +1,11 @@
 <?php
 class ControllerCommonFooter extends Controller {
 	public function index() {
-		$this->load->language('common/header');
 		$this->load->language('common/footer');
-        $this->load->language('common/search');
 
 		$data['scripts'] = $this->document->getScripts('footer');
+
+        $data['lt_newsletter'] = $this->load->controller('module/lt_newsletter');
 
 		$data['text_information'] = $this->language->get('text_information');
 		$data['text_service'] = $this->language->get('text_service');
@@ -21,19 +21,13 @@ class ControllerCommonFooter extends Controller {
 		$data['text_order'] = $this->language->get('text_order');
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
-        $data['text_search'] = $this->language->get('text_search');
-        $data['text_copyRight'] = $this->language->get('text_copyRight');
-        $data['text_menu_special'] = $this->language->get('menu_special');
-
-        $data['text_call'] = $this->language->get('text_call');
-		$data['text_name'] = $this->language->get('text_name');
-		$data['text_phone'] = $this->language->get('text_phone');
-		$data['entry_name'] = $this->language->get('entry_name');
-		$data['entry_phone'] = $this->language->get('entry_phone');
-		$data['button_continue'] = $this->language->get('button_continue');
-		$data['text_loading'] = $this->language->get('text_loading');
 
         $data['telephone'] = $this->config->get('config_telephone');
+        $data['email'] = $this->config->get('config_email');
+        $data['facebook'] = $this->config->get('config_facebook');
+        $data['instagram'] = $this->config->get('config_instagram');
+        $data['twitter'] = $this->config->get('config_twitter');
+        $data['youtube'] = $this->config->get('config_youtube');
 
 
                 
@@ -48,11 +42,32 @@ class ControllerCommonFooter extends Controller {
 		foreach ($this->model_catalog_information->getInformations() as $result) {
 			if ($result['bottom']) {
 				$data['informations'][] = array(
+				    'parent' => $result['parent'],
 					'title' => $result['title'],
 					'href'  => $this->url->link('information/information', 'information_id=' . $result['information_id'])
 				);
 			}
 		}
+
+
+
+
+
+
+        // Menu
+        $this->load->model('catalog/category');
+        $data['categories'] = array();
+        $categories = $this->model_catalog_category->getCategories(0);
+
+        foreach ($categories as $category) {
+            if ($category['top']) {
+                $data['categories'][] = array(
+                    'name'     => $category['name'],
+                    'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
+                );
+            }
+        }
+
 
 		$data['contact'] = $this->url->link('information/contact');
 		$data['return'] = $this->url->link('account/return/add', '', 'SSL');
@@ -72,15 +87,6 @@ class ControllerCommonFooter extends Controller {
 		$data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');
 
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
-
-
-
-        $data['user_name'] = $this->customer->getFirstName();
-        $data['user_phone'] = $this->customer->getTelephone();
-
-        $data['search'] = $this->load->controller('common/search');
-        $data['language'] = $this->load->controller('common/language');
-        $data['lt_newsletter'] = $this->load->controller('module/lt_newsletter');
 
 		// Whos Online
 		if ($this->config->get('config_customer_online')) {

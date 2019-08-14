@@ -41,13 +41,17 @@
 			]]></add>
 		</operation>
 	</file>
+	
 	<!-- Header -->
 	<file path="catalog/view/theme/*/template/common/" name="header.tpl">
 		<operation>
 			<search position="before"><![CDATA[catalog/view/javascript/bootstrap/js/bootstrap.min.js]]></search>
-			<add><![CDATA[<script src="catalog/view/javascript/mf/jquery-ui.min.js" type="text/javascript"></script>]]></add>
+			<add><![CDATA[				
+				<script src="catalog/view/javascript/mf/jquery-ui.min.js" type="text/javascript"></script>
+			]]></add>
 		</operation>
 	</file>
+	
 	<file path="catalog/controller/" name="common/header.php,module/category.php">
 		<operation error="skip">
 			<search position="replace"><![CDATA['filter_sub_category' => true]]></search>
@@ -57,6 +61,7 @@
 			]]></add>
 		</operation>
 	</file>
+	
 	<!-- Layout -->
 	<file path="admin/controller/design/" name="layout.php">
 		<operation>
@@ -76,12 +81,14 @@
 			]]></add>
 		</operation>
 	</file>
+	
 	<file path="admin/model/design/" name="layout.php">
 		<operation error="skip">
 			<search position="replace"><![CDATA[$this->db->query("DELETE FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "'");]]></search>
 			<add><![CDATA[$this->db->query("DELETE FROM " . DB_PREFIX . "layout_module WHERE layout_id = '" . (int)$layout_id . "' AND `code` NOT REGEXP '^mega_filter'");]]></add>
 		</operation>
 	</file>
+	
 	<!-- Controller -->
 	<file path="system/engine/" name="controller.php">
 		<operation>
@@ -113,6 +120,7 @@
 			]]></add>
 		</operation>
 	</file>
+	
 	<file path="catalog/controller/product/" name="special.php">
 		<operation>
 			<search position="before"><![CDATA[$product_total = $this->model_catalog_product->getTotalProductSpecials();]]></search>
@@ -125,8 +133,8 @@
 	</file>
 	
 	<!-- SEO -->
-	<file path="catalog/controller/common/" name="seo_url.php,seo_mega_pack_pro_url.php" error="skip">
-		<operation>
+	<file path="catalog/controller/" name="common/seo_url.php,common/seo_mega_pack_pro_url.php,startup/seo_url.php" error="skip">
+		<operation error="log">
 			<search position="after"><![CDATA[$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE keyword = '" . $this->db->escape($part) . "'");]]></search>
 			<add><![CDATA[
 				$mfilterConfig = $this->config->get( 'mega_filter_seo' );
@@ -142,10 +150,10 @@
 				
 						continue;
 					}
-				}				
+				}
 			]]></add>
 		</operation>
-		<operation>
+		<operation error="log">
 			<search position="replace" regex="true"><![CDATA[~foreach *\( *\$parts as \$part *\) \{~]]></search>
 			<add><![CDATA[
 				$mfilterConfig = $this->config->get( 'mega_filter_seo' );
@@ -239,10 +247,12 @@
 			<search position="replace"><![CDATA[foreach ($parts as $keyword) {]]></search>
 			<add><![CDATA[
 				$mfp_parts = array();
+				$mfp_oparts = explode('/', trim(isset($route_)?$route_:$route, '/'));
+				$mfp_key = 0;
 				
 				foreach ($parts as $keyword) {
 					if( ! empty( $mfilterConfig['enabled'] ) ) {
-						if( preg_match( '/^mfp,([a-z0-9\-_]+\[[^\]]*\],?)+/', $keyword, $matches ) ) {
+						if( preg_match( '/^mfp,([a-z0-9\-_]+\[[^\]]*\],?)+/', $mfp_oparts[$mfp_key], $matches ) ) {
 							if( isset( $this->request->get['route'] ) ) {
 								$this->request->get['route'] = preg_replace( '/\/?mfp,([a-z0-9\-_]+\[[^\]]*\],?)+/', '', $this->request->get['route'] );
 							}
@@ -262,6 +272,8 @@
 					} else {
 						$mfp_parts[] = $keyword;
 					}
+				
+					$mfp_key++;
 			]]></add>
 		</operation>
 		<operation>
@@ -294,7 +306,9 @@
 						if( empty( $data['mfp_disabled'] ) ) {
 							$this->load->model( 'module/mega_filter' );
 					
-							$sql = MegaFilterCore::newInstance( $this, $sql, $data )->getSQL( __FUNCTION__ );
+							if( class_exists( 'MegaFilterCore' ) ) {
+								$sql = MegaFilterCore::newInstance( $this, $sql, $data )->getSQL( __FUNCTION__ );
+							}
 						}
 					}
 				}
@@ -308,7 +322,9 @@
 				if( ! empty( $this->request->get['mfp'] ) || ( NULL != ( $mfSettings = $this->config->get('mega_filter_settings') ) && ! empty( $mfSettings['in_stock_default_selected'] ) ) ) {
 					$this->load->model( 'module/mega_filter' );
 					
-					$sql = MegaFilterCore::newInstance( $this, $sql, $data )->getSQL( __FUNCTION__ );
+					if( class_exists( 'MegaFilterCore' ) ) {
+						$sql = MegaFilterCore::newInstance( $this, $sql, $data )->getSQL( __FUNCTION__ );
+					}
 				}
 				
 				$query = $this->db->query( $sql );
@@ -322,7 +338,9 @@
 				if( ! empty( $this->request->get['mfp'] ) || ( NULL != ( $mfSettings = $this->config->get('mega_filter_settings') ) && ! empty( $mfSettings['in_stock_default_selected'] ) ) ) {
 					$this->load->model( 'module/mega_filter' );
 					
-					$sql = MegaFilterCore::newInstance( $this, $sql, $data )->getSQL( __FUNCTION__ );
+					if( class_exists( 'MegaFilterCore' ) ) {
+						$sql = MegaFilterCore::newInstance( $this, $sql, $data )->getSQL( __FUNCTION__ );
+					}
 				}
 				
 				$query = $this->db->query( $sql );
@@ -379,23 +397,21 @@
 			]]></add>
 		</operation>
 		<operation>
-			<search position="before"><![CDATA[$category_info = $this->model_catalog_category->getCategory($category_id);]]></search>
+			<search position="before"><![CDATA[$category_info = $this->model_catalog_category->getCategory(]]></search>
 			<add><![CDATA[
 				if( ! empty( $this->_request->get['mfp_org_path'] ) ) {
 					$this->_request->get['path'] = $this->_request->get['mfp_org_path'];
 				}
-			]]></add>
-		</operation>
-		<operation>
-			<search position="replace"><![CDATA[$category_info = $this->model_catalog_category->getCategory($category_id);]]></search>
-			<add><![CDATA[
+				
 				if( ! empty( $this->request->get['mfp_path'] ) ) {
 					$category_id = explode( '_', $this->request->get['mfp_path'] );
 					$category_id = end( $category_id );
 				}
-				
-				$category_info = $this->model_catalog_category->getCategory($category_id);
-				
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[$category_info = $this->model_catalog_category->getCategory(]]></search>
+			<add><![CDATA[
 				if( ! empty( $this->request->get['mfp_org_path'] ) ) {
 					$category_id = explode( '_', $this->request->get['mfp_org_path'] );
 					$category_id = end( $category_id );
@@ -405,11 +421,52 @@
 	</file>
 	
 	<file path="catalog/controller/" name="product/category.php,product/manufacturer.php,product/search.php,product/special.php,module/mega_filter.php">
+		<operation>
+			<search position="after"><![CDATA[extends Controller {]]></search>
+			<add><![CDATA[
+				private function _removeMfpFromUrl( $url ) {
+					if( false !== ( $mfpPos = mb_strpos( $url, '?mfp=', 0, 'utf8' ) ) ) {
+						$before = $mfpPos ? mb_substr( $url, 0, $mfpPos, 'utf8' ) : '';
+						$after	= '';
+				
+						if( false !== ( $pos = mb_strpos( $url, '&', $mfpPos+1, 'utf8' ) ) ) {
+							$after = '?' . mb_substr( $url, $pos+1, NULL, 'utf8' );
+						}
+				
+						$url = $before . $after;
+					} else if( false !== ( $mfpPos = mb_strpos( $url, '&mfp=', 0, 'utf8' ) ) ) {
+						$before = $mfpPos ? mb_substr( $url, 0, $mfpPos, 'utf8' ) : '';
+						$after	= '';
+				
+						if( false !== ( $pos = mb_strpos( $url, '&', $mfpPos+1, 'utf8' ) ) ) {
+							$after = '?' . mb_substr( $url, $pos+1, NULL, 'utf8' );
+						}
+				
+						$url = $before . $after;
+					} else if( false !== ( $mfpPos = mb_strpos( $url, 'mfp,', 0, 'utf8' ) ) ) {
+						$before = $mfpPos ? mb_substr( $url, 0, $mfpPos, 'utf8' ) : '';
+						$after	= '';
+				
+						if( false !== ( $pos = mb_strpos( $url, '?', $mfpPos+1, 'utf8' ) ) ) {
+							$after = mb_substr( $url, $pos, NULL, 'utf8' );
+						} else if( false !== ( $pos = mb_strpos( $url, '&', $mfpPos+1, 'utf8' ) ) ) {
+							$after = '?' . mb_substr( $url, $pos+1, NULL, 'utf8' );
+						} else if( false !== ( $pos = mb_strpos( $url, '/', $mfpPos+1, 'utf8' ) ) ) {
+							$after = mb_substr( $url, $mfpPos, $pos, 'utf8' );
+						}
+				
+						$url = $before . $after;
+					}
+				
+					return $url;
+				}
+			]]></add>
+		</operation>
 		<operation error="skip">
 			<search position="after"><![CDATA[$url = '';]]></search>
 			<add><![CDATA[
 				if( ! empty( $this->request->get['mfp'] ) ) {
-					$url .= '&mfp=' . $this->request->get['mfp'];
+					$url .= '&mfp=' . urlencode( $this->request->get['mfp'] );
 				}
 			]]></add>
 		</operation>
@@ -417,42 +474,52 @@
 			<search position="before"><![CDATA[$this->response->setOutput(]]></search>
 			<add><![CDATA[
 				if( isset( $this->request->get['mfilterAjax'] ) ) {
-					$settings	= $this->config->get('mega_filter_settings');
-					$baseTypes	= array( 'stock_status', 'manufacturers', 'rating', 'attributes', 'price', 'options', 'filters' );
-		
-					if( isset( $this->request->get['mfilterBTypes'] ) ) {
-						$baseTypes = explode( ',', $this->request->get['mfilterBTypes'] );
-					}
-					
-					if( ! empty( $settings['calculate_number_of_products'] ) || in_array( 'categories:tree', $baseTypes ) ) {
-						if( empty( $settings['calculate_number_of_products'] ) ) {
-							$baseTypes = array( 'categories:tree' );
+					$this->load->model( 'module/mega_filter' );
+				
+					if( class_exists( 'MegaFilterCore' ) ) {
+						$calculate_number_of_products = false;
+				
+						$settings = $this->config->get('mega_filter_module');
+						$settings = isset( $settings[$this->request->get['mfilterIdx']] ) && isset( $this->request->get['mfilterIdx'] ) 
+							? $settings[$this->request->get['mfilterIdx']] : array();
+				
+						if( ! empty( $settings['configuration'] ) ) {
+							$calculate_number_of_products = ! empty( $settings['configuration']['calculate_number_of_products'] );
+						} else {
+							$settings = $this->config->get('mega_filter_settings');
+							$calculate_number_of_products = ! empty( $settings['calculate_number_of_products'] );
 						}
 				
-						$this->load->model( 'module/mega_filter' );
-
-						$idx = 0;
-		
-						if( isset( $this->request->get['mfilterIdx'] ) )
-							$idx = (int) $this->request->get['mfilterIdx'];
-						
-						$data['mfilter_json'] = json_encode( MegaFilterCore::newInstance( $this, NULL )->getJsonData($baseTypes, $idx) );
-					}
+						$seo_settings	= $this->config->get('mega_filter_seo');
 				
-					$data['header'] = $data['column_left'] = $data['column_right'] = $data['content_top'] = $data['content_bottom'] = $data['footer'] = '';
+						$baseTypes	= array( 'stock_status', 'manufacturers', 'rating', 'attributes', 'price', 'options', 'filters' );
+
+						if( isset( $this->request->get['mfilterBTypes'] ) ) {
+							$baseTypes = explode( ',', $this->request->get['mfilterBTypes'] );
+						}
+
+						if( ! empty( $seo_settings['enabled'] ) || $calculate_number_of_products || in_array( 'categories:tree', $baseTypes ) ) {
+							if( ! $calculate_number_of_products ) {
+								$baseTypes = array( 'categories:tree' );
+							}
+
+							$this->load->model( 'module/mega_filter' );
+
+							$idx = 0;
+
+							if( isset( $this->request->get['mfilterIdx'] ) )
+								$idx = (int) $this->request->get['mfilterIdx'];
+
+							$data['mfilter_json'] = json_encode( MegaFilterCore::newInstance( $this, NULL )->getJsonData($baseTypes, $idx) );
+						}
+
+						$data['header'] = $data['column_left'] = $data['column_right'] = $data['content_top'] = $data['content_bottom'] = $data['footer'] = '';
+					}
 				}
 				
 				if( ! empty( $data['breadcrumbs'] ) && ! empty( $this->request->get['mfp'] ) ) {
 					foreach( $data['breadcrumbs'] as $mfK => $mfBreadcrumb ) {
-						$mfReplace = preg_replace( '/path\[[^\]]+\],?/', '', $this->request->get['mfp'] );
-						$mfFind = ( mb_strpos( $mfBreadcrumb['href'], '?mfp=', 0, 'utf-8' ) !== false ? '?mfp=' : '&mfp=' );
-						
-						$data['breadcrumbs'][$mfK]['href'] = str_replace(array(
-							$mfFind . $this->request->get['mfp'],
-							'&amp;mfp=' . $this->request->get['mfp'],
-							$mfFind . urlencode( $this->request->get['mfp'] ),
-							'&amp;mfp=' . urlencode( $this->request->get['mfp'] )
-						), $mfReplace ? $mfFind . $mfReplace : '', $mfBreadcrumb['href'] );
+						$data['breadcrumbs'][$mfK]['href'] = $this->_removeMfpFromUrl( $data['breadcrumbs'][$mfK]['href'] );
 					}
 				}
 			]]></add>

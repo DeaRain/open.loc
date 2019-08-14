@@ -1,12 +1,58 @@
 console.log('common file');
 
-$( document ).ready(function() {
+$(document).ready(function () {
 
+    window.onresize = function (event) {
+        if ($(window).width() < 993) {
+            var drop_menu = $('.header-container__right-drop-lists').detach();
+            drop_menu.appendTo('.left-menu__top-block');
+        }
+        if ($(window).width() > 993) {
+            var drop_menu = $('.header-container__right-drop-lists').detach();
+            drop_menu.appendTo('.header-container__right');
+        }
+    }
 
-    if($(window).width()<993) {
+    if ($(window).width() < 993) {
         var drop_menu = $('.header-container__right-drop-lists').detach();
         drop_menu.appendTo('.left-menu__top-block');
     }
+    if ($(window).width() > 993) {
+        var drop_menu = $('.header-container__right-drop-lists').detach();
+        drop_menu.appendTo('.header-container__right');
+    }
+
+    $('.js-main-slider').slick({
+        dots: true,
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 0,
+                settings: "unslick"
+            },
+            {
+                breakpoint: 768,
+                setting: {
+                    dots: true,
+                    arrows: false,
+                }
+            }
+        ]
+    });
+
+    $('.js-mobile-slider').slick({
+        dots: true,
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 768,
+                setting: {
+                    dots: true,
+                    arrows: false,
+                }
+            }
+        ]
+    });
 
     $('.interface-item-search').click(function () {
 
@@ -19,14 +65,10 @@ $( document ).ready(function() {
         console.log('test');
     });
 
-    $('.js-main-slider').slick({
-        dots:true,
-        arrows:false,
-    });
 
     $('.infoline-slider-js').slick({
         // dots:true,
-        arrows:false,
+        arrows: false,
         slidesToShow: 6,
         slidesToScroll: 3,
         variableWidth: true,
@@ -39,7 +81,7 @@ $( document ).ready(function() {
                     variableWidth: false,
                     centerPadding: true,
                     centerMode: true,
-                    arrows:true,
+                    arrows: true,
                     slidesToShow: 4,
                     slidesToScroll: 3,
                 }
@@ -51,7 +93,7 @@ $( document ).ready(function() {
                     variableWidth: false,
                     centerPadding: true,
                     centerMode: true,
-                    arrows:true,
+                    arrows: true,
                     slidesToShow: 3,
                     slidesToScroll: 3,
                 }
@@ -63,7 +105,7 @@ $( document ).ready(function() {
                     variableWidth: false,
                     centerPadding: true,
                     centerMode: true,
-                    arrows:true,
+                    arrows: true,
                     slidesToShow: 2,
                     slidesToScroll: 2,
                 }
@@ -75,7 +117,7 @@ $( document ).ready(function() {
                     variableWidth: false,
                     centerPadding: true,
                     centerMode: true,
-                    arrows:true,
+                    arrows: true,
                     slidesToShow: 1,
                     slidesToScroll: 1,
                 }
@@ -85,8 +127,8 @@ $( document ).ready(function() {
 
 
     $('.production-slider').slick({
-        dots:true,
-        arrows:true,
+        dots: true,
+        arrows: true,
         slidesToShow: 4,
         slidesToScroll: 2,
         variableWidth: true,
@@ -94,8 +136,8 @@ $( document ).ready(function() {
             {
                 breakpoint: 1199,
                 settings: {
-                    dots:true,
-                    arrows:true,
+                    dots: true,
+                    arrows: true,
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     variableWidth: false,
@@ -106,8 +148,8 @@ $( document ).ready(function() {
             {
                 breakpoint: 993,
                 settings: {
-                    dots:true,
-                    arrows:true,
+                    dots: true,
+                    arrows: true,
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     variableWidth: true,
@@ -128,14 +170,14 @@ $( document ).ready(function() {
 
 
     $('.menu-item').click(function (e) {
-        if($(this).parent().is('.left-menu')) {
-            if (e.target.getAttribute('href')=="javascript:void(0);") {
+        if ($(this).parent().is('.left-menu')) {
+            if (e.target.getAttribute('href') == "javascript:void(0);") {
                 $(this).find('.sub-menu').toggle(50);
                 $(this).children('a').toggleClass('after-rotate');
             }
         }
-        if($(this).parent().is('.menu-footer')) {
-            if($(window).width()<768) {
+        if ($(this).parent().is('.menu-footer')) {
+            if ($(window).width() < 768) {
                 if (e.target.getAttribute('href') == "javascript:void(0);") {
                     $(this).find('.sub-menu').toggle(50);
                     $(this).children('a').toggleClass('after-rotate');
@@ -153,14 +195,14 @@ $( document ).ready(function() {
 
 
     $('.top-menu-changer').click(function () {
-        if($(window).width()<993) {
+        if ($(window).width() < 993) {
             $(this).parent().find('.top-menu').toggle(50);
             $(this).children().toggleClass('after-rotate');
         }
     });
 
     $('.top-menu__item-url').click(function (e) {
-        if($(window).width()<993) {
+        if ($(window).width() < 993) {
             $(this).parent().find('.top-menu__item-container').toggle(50);
             $(this).parent().toggleClass('after-rotate');
         }
@@ -170,10 +212,9 @@ $( document ).ready(function() {
         $(this).find('.right-drop-list__container').toggleClass('right-drop-list__container_active');
     });
     $('.menu-button').click(function () {
-        if($(window).width()>767) {
+        if ($(window).width() > 767) {
             $(this).parent().find('.left-menu__wrapper').animate({width: "555px"}, 450);
-        }
-        else {
+        } else {
             $(this).parent().find('.left-menu__wrapper').animate({width: "320px"}, 450);
         }
         $(this).parent().find('.left-menu__wrapper-background').animate({height: "100vh", top: "0px"}, 400);
@@ -181,42 +222,29 @@ $( document ).ready(function() {
 
     $('.left-menu__wrapper-background').click(function () {
         $(this).parent().find('.left-menu__wrapper').animate({width: "0px"}, 350);
-        $(this).animate({height: "0",top: "50%"}, 300);
+        $(this).animate({height: "0", top: "50%"}, 300);
     });
 
     $('.left-menu__close-button').click(function () {
         $(this).parent().animate({width: "0px"}, 350);
-        $(this).parent().parent().find('.left-menu__wrapper-background').animate({height: "0",top: "50%"}, 300);
+        $(this).parent().parent().find('.left-menu__wrapper-background').animate({height: "0", top: "50%"}, 300);
     });
-
-
 
 
     $('.footer-container__item').click(function () {
         $(this).find('.footer_container__toggle').toggleClass('footer_container__toggle_active');
     });
 
-    $(document).click(function (e){ // событие клика по веб-документу
+    $('.my-alert').click(function (e) {
+        $('.my-alert').toggle(100);
+    });
+    $(document).click(function (e) { // событие клика по веб-документу
         var div = $(".right-drop-list"); // тут указываем ID элемента
         if (!div.is(e.target) // если клик был не по нашему блоку
-            && div.has(e.target).length === 0)
-        { // и не по его дочерним элементам
+            && div.has(e.target).length === 0) { // и не по его дочерним элементам
             div.find('.right-drop-list__container').removeClass('right-drop-list__container_active');// скрываем его
         }
     });
 
 
-
-    $('.js-main-slider').slick({
-        dots:true,
-        arrows:false,
-    });
-
-
-
-
 });
-
-// $(document).ready( function() {
-//     $('.dropdown-toggle').dropdown();
-// });

@@ -1,20 +1,6 @@
 <footer>
-  <div class="container">
-    <div class="subscribe-container">
-      <div class="subscribe-container__header">
-        Підпишись на новини та акції
-      </div>
 
-      <div class="subscribe-container__text-box">
-        <form>
-          <div class="form-group">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введіть email для підписки">
-            <button type="submit" class="btn subscribe-container__submit-bnt"><span class="icon-right-chevron-1_3"></span></button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+    <?php echo $lt_newsletter; ?>
   <div class="container">
     <div class="footer-container">
       <div class="footer-container__item">
@@ -121,7 +107,6 @@
 
 </footer>
 
-<script src="catalog/view/dist/js/lib.js"></script>
 <script src="catalog/view/dist/js/common.js"></script>
 
 <!--

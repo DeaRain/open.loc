@@ -1,14 +1,28 @@
----------- Date: 2019-07-10 11:13:58 ~ IP : 127.0.0.1 ----------
-REQUEST URI : /novosti-65/
+---------- Date: 2019-08-14 18:08:50 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/category&path=59_72
 MOD DETAILS:
-   modFile   : /var/www/medikateka.loc/vqmod/xml/mega_filter.xml
-   id        : Mega Filter PRO
-   version   : 1.5.x
-   vqmver    : 2.4.0
-   author    : marsilea15@gmail.com
+   modFile   : /var/www/open.loc/html/vqmod/xml/gallery.xml
+   id        : Gallery
+   version   : 1
+   vqmver    : 1.0.0
+   author    : Sergo
+VQModObject::parseMods - Could not resolve path for [catalog/language/ukrainian/common/footer.php] (SKIPPED)
 
-File Name    : catalog/view/theme/*/template/common/header.tpl(0)
-VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): catalog/view/javascript/bootstrap/js/bootstrap.min.js
+----------------------------------------------------------------------
+
+
+---------- Date: 2019-08-14 19:11:52 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/product&product_id=51
+MOD DETAILS:
+   modFile   : /var/www/open.loc/html/vqmod/xml/microdata_and_review_no_ajax.xml
+   id        : Микроданные Shema.org + "отзывы без аякса" + Яндекс остров
+   version   : 3.0
+   vqmver    : all
+   author    : zubovd
+
+File Name    : catalog/controller/product/product.php(2)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): 'special' 	 => $special,
+
 ----------------------------------------------------------------------
 
 
