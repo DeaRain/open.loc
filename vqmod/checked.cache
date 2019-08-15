@@ -333,3 +333,9 @@ admin/model/catalog/attribute_group.php
 admin/view/template/catalog/attribute_group_list.tpl
 admin/view/template/catalog/attribute_form.tpl
 admin/view/template/module/mega_filter_attributes.tpl
+catalog/controller/checkout/cart.php
+catalog/language/english/checkout/cart.php
+catalog/language/russian/checkout/cart.php
+catalog/controller/account/wishlist.php
+catalog/language/english/account/wishlist.php
+catalog/language/russian/account/wishlist.php

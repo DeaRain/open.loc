@@ -430,3 +430,30 @@
 2019-08-14 20:37:16 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
 2019-08-14 20:38:04 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
 2019-08-14 20:38:04 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/controller/module/featured.php on line 62
+2019-08-15 8:11:20 - PHP Warning:  Illegal string offset 'value' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 300
+2019-08-15 8:11:20 - PHP Warning:  Illegal string offset 'href' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:20 - PHP Warning:  Illegal string offset 'text' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:20 - PHP Warning:  Illegal string offset 'value' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 300
+2019-08-15 8:11:20 - PHP Warning:  Illegal string offset 'href' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:20 - PHP Warning:  Illegal string offset 'text' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:20 - PHP Warning:  Illegal string offset 'value' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 300
+2019-08-15 8:11:20 - PHP Warning:  Illegal string offset 'href' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:20 - PHP Warning:  Illegal string offset 'text' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:29 - PHP Warning:  Illegal string offset 'value' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 300
+2019-08-15 8:11:29 - PHP Warning:  Illegal string offset 'href' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:29 - PHP Warning:  Illegal string offset 'text' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:29 - PHP Warning:  Illegal string offset 'value' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 300
+2019-08-15 8:11:29 - PHP Warning:  Illegal string offset 'href' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:29 - PHP Warning:  Illegal string offset 'text' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:29 - PHP Warning:  Illegal string offset 'value' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 300
+2019-08-15 8:11:29 - PHP Warning:  Illegal string offset 'href' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:29 - PHP Warning:  Illegal string offset 'text' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:40 - PHP Warning:  Illegal string offset 'value' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 300
+2019-08-15 8:11:40 - PHP Warning:  Illegal string offset 'href' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:40 - PHP Warning:  Illegal string offset 'text' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:40 - PHP Warning:  Illegal string offset 'value' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 300
+2019-08-15 8:11:40 - PHP Warning:  Illegal string offset 'href' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:40 - PHP Warning:  Illegal string offset 'text' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:40 - PHP Warning:  Illegal string offset 'value' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 300
+2019-08-15 8:11:40 - PHP Warning:  Illegal string offset 'href' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
+2019-08-15 8:11:40 - PHP Warning:  Illegal string offset 'text' in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 304
