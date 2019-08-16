@@ -771,7 +771,7 @@ class ControllerCatalogNews extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 		foreach ($this->request->post['news_description'] as $language_id => $value) {
-			if ((strlen($value['title']) < 3) || (strlen($value['title']) >100)) {
+			if ((strlen($value['title']) < 3) || (strlen($value['title']) >200)) {
 				$this->error['title'][$language_id] = $this->language->get('error_title');
 			}
 			if (strlen($value['description']) < 3) {

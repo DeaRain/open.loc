@@ -11645,16 +11645,89 @@ a:visited {
 .products {
     display: flex;
     flex-direction: column; }
+.products .products__selector {
+    width: 200px;
+    height: 40px;
+    border: solid 1px #e6e6e6;
+    background: none;
+    margin-left: 15px;
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #333333; }
+.products .products__selector span {
+    margin-left: 20px; }
+.products .products__button {
+    width: 40px;
+    height: 40px;
+    border: solid 1px #e6e6e6;
+    background: none;
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #333333;
+    margin-left: 15px; }
+.products .products__button_active {
+    border: solid 1px #1a1a1a; }
 .products .products__header {
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #999999;
     height: 81px;
-    background: #0b2e13; }
+    display: flex;
+    justify-content: space-between; }
+.products .products__header .products__view {
+    display: flex;
+    align-items: center; }
+.products .products__header .products__sort {
+    display: flex;
+    align-items: center; }
 .products .products__body {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap; }
 .products .products__footer {
+    border-top: solid 1px #e6e6e6;
     height: 81px;
-    background: #0d84e3; }
+    display: flex;
+    justify-content: center; }
+.products .products__footer ul {
+    margin-top: 27px;
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: #999999; }
+.products .products__footer ul span {
+    color: #1a1a1a; }
+.products .products__footer ul a {
+    color: #999999; }
+.products .products__footer ul li {
+    padding: 0px 15px; }
+.products .products__footer ul li:first-child {
+    margin-right: auto; }
+.products .products__footer ul li:last-child {
+    margin-left: auto; }
 
 .prod {
     position: relative;

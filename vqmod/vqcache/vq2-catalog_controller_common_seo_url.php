@@ -100,86 +100,6 @@ class ControllerCommonSeoUrl extends Controller {
 				}
 			}
 
-
-        if ($this->request->get['route'] != 'product/product' && $this->request->get['route'] != 'product/category' && $this->request->get['route'] != 'product/manufacturer/info' && $this->request->get['route'] != 'information/information') {
-			$blog_headlines = $this->config->get('ncategory_bnews_headlines_url') ? $this->config->get('ncategory_bnews_headlines_url') : 'blog-headlines';
-			
-			$blogparts = explode('/', $this->request->get['_route_']);
-			
-			if (utf8_strlen(end($blogparts)) == 0) {
-				array_pop($blogparts);
-			}
-
-			
-			foreach ($blogparts as $part) {
-					/* default article seo urls */
-					if (strpos($part, 'blogcat') === 0) {
-						$ncatid = (int)str_replace("blogcat", "", $part);
-						if (!isset($this->request->get['ncat'])) {
-							$this->request->get['ncat'] = $ncatid;
-						} else {
-							$this->request->get['ncat'] .= '_' . $ncatid;
-						}
-					}
-					if (strpos($part, 'blogart') === 0) {
-						$this->request->get['news_id'] = (int)str_replace("blogart", "", $part);
-					}
-					if (strpos($part, 'blogauthor') === 0) {
-						$this->request->get['author'] = (int)str_replace("blogauthor", "", $part);
-					}
-					/* end of default article urls */
-				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE keyword = '" . $this->db->escape($part) . "'");
-
-				$mfilterConfig = $this->config->get( 'mega_filter_seo' );
-				
-				if( ! empty( $mfilterConfig['enabled'] ) && ! $query->num_rows ) {
-					$mfilter_query = $this->db->query( "SELECT * FROM `" . DB_PREFIX . "mfilter_url_alias` WHERE `alias` = '" . $this->db->escape( $part ) . "'");
-				
-					if( $mfilter_query->num_rows ) {
-						if( ! isset( $this->request->get['mfp'] ) ) {
-							$this->request->get['mfp'] = $mfilter_query->row['mfp'];
-						}
-						$this->request->get['mfp_seo_alias'] = $part;
-				
-						continue;
-					}
-				}
-			
-				
-				if ($part == $blog_headlines) {
-					$query->num_rows = true;
-					$query->row['query'] = "-=-";
-				}
-
-				if ($query->num_rows) {
-					$url = explode('=', $query->row['query']);
-					/* custom article urls */
-					if ($url[0] == 'news_id') {
-						$this->request->get['news_id'] = $url[1];
-					}
-					if ($url[0] == 'nauthor_id') {
-						$this->request->get['author'] = $url[1];
-					}
-					if ($url[0] == 'ncategory_id') {
-						if (!isset($this->request->get['ncat'])) {
-							$this->request->get['ncat'] = $url[1];
-						} else {
-							$this->request->get['ncat'] .= '_' . $url[1];
-						}
-					}
-					/* end of custom article urls */
-				}
-			}
-			if (!isset($this->request->get['route']) || (isset($this->request->get['route']) && $this->request->get['route'] == "error/not_found")) {
-					
-				if (isset($this->request->get['news_id'])) {
-					$this->request->get['route'] = 'news/article';
-				} elseif (isset($this->request->get['ncat']) || isset($this->request->get['author']) || $this->request->get['_route_'] ==  $blog_headlines) {
-					$this->request->get['route'] = 'news/ncategory';
-				}
-			}
-        }
-			
 			if (isset($this->request->get['route'])) {
 				return new Action($this->request->get['route']);
 			}
@@ -205,42 +125,7 @@ class ControllerCommonSeoUrl extends Controller {
 
 						unset($data[$key]);
 					}
-				
-			} elseif ($data['route'] == 'news/article' && $key == 'news_id') { 
-				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = '" . $this->db->escape($key . '=' . (int)$value) . "'");
-				if ($query->num_rows) {
-					$url .= '/' . $query->row['keyword'];
-					unset($data[$key]);
-				} else {
-					$url .= '/blogart' . (int)$value;	
-					unset($data[$key]);
-				}
-			} elseif ($data['route'] == 'news/ncategory' && $key == 'author') { 
-				$realkey = "nauthor_id";
-				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = '" . $this->db->escape($realkey . '=' . (int)$value) . "'");
-				if ($query->num_rows) {
-					$url .= '/' . $query->row['keyword'];
-					unset($data[$key]);
-				} else {
-					$url .= '/blogauthor' . (int)$value;	
-					unset($data[$key]);
-				}
-			} elseif ($key == 'ncat') {
-				$ncategories = explode('_', $value);
-						
-				foreach ($ncategories as $ncategory) {
-					$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = 'ncategory_id=" . (int)$ncategory . "'");
-					if ($query->num_rows) {
-						$url .= '/' . $query->row['keyword'];
-					} else {
-						$url .= '/blogcat' . $ncategory;
-					}
-				}
-				unset($data[$key]);
-			} elseif ((isset($data['route']) && $data['route'] == 'news/ncategory' && $key != 'ncat' && $key != 'author' && $key != 'page') || (isset($data['route']) && $data['route'] == 'news/article' && $key != 'page')) { 
-				$blog_headlines = $this->config->get('ncategory_bnews_headlines_url') ? $this->config->get('ncategory_bnews_headlines_url') : 'blog-headlines';
-				$url .=  '/'.$blog_headlines;
-			} elseif ($key == 'path') {
+				} elseif ($key == 'path') {
 					$categories = explode('_', $value);
 
 					foreach ($categories as $category) {

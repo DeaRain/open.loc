@@ -1,5 +1,4 @@
 <footer>
-
     <?php echo $lt_newsletter; ?>
   <div class="container">
     <div class="footer-container">

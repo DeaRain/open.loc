@@ -1,0 +1,26 @@
+---------- Date: 2019-08-15 15:04:53 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /admin/index.php?route=extension/modification/clear&token=8dhUXBsQ7T62kFs1trVQPCQ4zKPIqSJo
+MOD DETAILS:
+   modFile   : /var/www/open.loc/html/vqmod/xml/gallery.xml
+   id        : Gallery
+   version   : 1
+   vqmver    : 1.0.0
+   author    : Sergo
+VQModObject::parseMods - Could not resolve path for [catalog/language/ukrainian/common/footer.php] (SKIPPED)
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2019-08-15 15:09:44 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : /var/www/open.loc/html/vqmod/xml/gallery.xml
+   id        : Gallery
+   version   : 1
+   vqmver    : 1.0.0
+   author    : Sergo
+VQModObject::parseMods - Could not resolve path for [catalog/language/ukrainian/common/footer.php] (SKIPPED)
+
+----------------------------------------------------------------------
+
+

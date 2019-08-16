@@ -101,7 +101,6 @@
     <?php } ?>
 
     <?php endif;?>
-
   <div class="header-flex-container">
     <div class="container">
       <div class="header-container">
@@ -149,12 +148,10 @@
             <a class="contact" href="tel:<?php echo str_replace(array(' ', '(', ')', '-','+'),'',$telephone);?>" >+<?php echo $telephone; ?></a>
           </div>
         </div>
-
         <div class="header-container__center-logo">
 <!--          <img src="catalog/view/dist/img/logo.svg" class="logo__img">-->
             <a href=""><img src="<?php echo $logo; ?>" class="logo__img"></a>
         </div>
-
         <div class="header-container__right">
           <div class="interface-item interface-item-search">
             <span class="icon-magnifying-glass interface-item__icon"></span>

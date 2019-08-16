@@ -1,10 +1,75 @@
 <?php echo $header; ?>
+
+<div class="grey-block">
+    <div class="container">
+        <ul class="my-breadcrumb">
+            <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+            <?php } ?>
+        </ul>
+    </div>
+</div>
+
 <div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
+    <div class="sing-prod">
+        <div class="sing-prod__left">
+            <img src="http://open.loc/image/cache/catalog/sock2-228x228.jpg" alt="" class="sing-prod__img">
+            <div class="sing-prod__extend-info">
+                NEW
+            </div>
+            <div class="sing-prod__sale">
+                <span class="sing-prod__saleText">До кінця акції залишилось:</span>
+                <span class="sing-prod__saleTime">38:18:45</span>
+            </div>
+            <div class="sing-prod__slider">
+                <img class="sing-prod__slider-img" src="http://open.loc/image/cache/catalog/sock2-228x228.jpg" alt="">
+                <img class="sing-prod__slider-img" src="http://open.loc/image/cache/catalog/sock2-228x228.jpg" alt="">
+                <img class="sing-prod__slider-img" src="http://open.loc/image/cache/catalog/sock1-228x228.png" alt="">
+                <img class="sing-prod__slider-img" src="http://open.loc/image/cache/catalog/sock2-228x228.png" alt="">
+            </div>
+        </div>
+        <div class="sing-prod__right">
+            <span class="sing-prod__header">Шкарпетки короткі V&T </span>
+
+            <div class="sing-prod__menu">
+                <div class="sing-prod__reviews">
+                    * * * * Відгуки
+                </div>
+                <span class="sing_prod__favorite">В обрані</span>
+                <span class="sing_prod__share"> Поділитись</span>
+            </div>
+
+            <div class="sing-prod__info sing-prod_mText">
+                <span class="sing_prod__aritcle"><b>Артикул:</b> HFM2367</span>
+
+                <span class="sing_prod__brend"><b>Бренд:</b> V&T SOCKS</span>
+
+                <span class="sing_prod__length"><b>Довжина:</b> короткі</span>
+
+                <span class="sing_prod__material"><b>Склад:</b> 80% - бавовна, 17% - поліамід, 3% - еластан</span>
+
+            </div>
+            <span class="sing-prod_mText"><b>Колір</b></span>
+            <div class="sing-prod__colors">
+
+            </div>
+            <span class="sing-prod_mText"><b>Розмір</b></span>
+            <div class="sing-prod__sizes">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<p style="padding: 15px 0px; background: green">
+
+<div class="container">
+<!--  <ul class="breadcrumb">-->
+<!--    --><?php //foreach ($breadcrumbs as $breadcrumb) { ?>
+<!--    <li><a href="--><?php //echo $breadcrumb['href']; ?><!--">--><?php //echo $breadcrumb['text']; ?><!--</a></li>-->
+<!--    --><?php //} ?>
+<!--  </ul>-->
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>

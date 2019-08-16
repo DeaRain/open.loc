@@ -52,16 +52,16 @@
             <div class="products">
                 <div class="products__header">
 
-
+                    <div class="products__view">
                     Показати по
-                    <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip"
-                            title="<?php echo $button_list; ?>"><i class="fa fa-th-list"></i></button>
-                    <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip"
-                            title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
-
-
+                    <button type="button" id="list-view" class="products__button products__button_active" data-toggle="tooltip"
+                            title="<?php echo $button_list; ?>">3</button>
+                    <button type="button" id="grid-view" class="products__button" data-toggle="tooltip"
+                            title="<?php echo $button_grid; ?>">4</button>
+                    </div>
+                    <div class="products__sort">
                     <label class="control-label" for="input-sort"><?php echo $text_sort; ?></label>
-                    <select id="input-sort" class="form-control" onchange="location = this.value;">
+                    <select id="input-sort" class="products__selector" onchange="location = this.value;">
                         <?php foreach ($sorts as $sorts) { ?>
                             <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
                                 <option value="<?php echo $sorts['href']; ?>"
@@ -71,20 +71,19 @@
                             <?php } ?>
                         <?php } ?>
                     </select>
-
-
-
+                    </div>
                 </div>
-                <label class="control-label" for="input-limit"><?php echo $text_limit; ?></label>
-                <select id="input-limit" class="form-control" onchange="location = this.value;">
-                    <?php foreach ($limits as $limits) { ?>
-                        <?php if ($limits['value'] == $limit) { ?>
-                            <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
-                        <?php } else { ?>
-                            <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
-                        <?php } ?>
-                    <?php } ?>
-                </select>
+<!--                <label class="control-label" for="input-limit">--><?php //echo $text_limit; ?><!--</label>-->
+<!--                <select id="input-limit" class="form-control" onchange="location = this.value;">-->
+<!--                    --><?php //foreach ($limits as $limits) { ?>
+<!--                        --><?php //if ($limits['value'] == $limit) { ?>
+<!--                            <option value="--><?php //echo $limits['href']; ?><!--" selected="selected">--><?php //echo $limits['text']; ?><!--</option>-->
+<!--                        --><?php //} else { ?>
+<!--                            <option value="--><?php //echo $limits['href']; ?><!--">--><?php //echo $limits['text']; ?><!--</option>-->
+<!--                        --><?php //} ?>
+<!--                    --><?php //} ?>
+<!--                </select>-->
+
                 <div class="products__body">
                     <?php foreach ($products as $product) { ?>
 
@@ -107,19 +106,30 @@
                                 </div>
                             </div>
                             <div class="prod__prices">
-                                <span class="prod__price"><?php echo $product['special']; ?></span>
-                                <span class="prod__old-price"><?php echo $product['price']; ?></span>
+                                <?php if($product['special']) : ?>
+                                    <span class="prod__price"><?php echo $product['special']; ?> </span>
+                                    <span class="prod__old-price"><?php echo $product['price']; ?> </span>
+                                <?php else : ?>
+                                    <span class="prod__price"><?php echo $product['price']; ?> </span>
+                                <?php endif; ?>
                             </div>
+                        <?php if ($product['status_new']) : ?>
                             <div class="prod__extend-info">
-                                -10%
+                                NEW
                             </div>
+                        <?php elseif($product['special']) : ?>
+                            <div class="prod__extend-info">
+                                <?php echo number_format(100 - (float)$product['special'] / (float)$product['price'] * 100).'%';?>
+                            </div>
+                        <?php endif;?>
+
                         </div>
                     <?php } ?>
                 </div>
                 <div class="products__footer">
-                    <div class="row">
-                        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-                    </div>
+
+                    <?php echo $pagination; ?>
+
                 </div>
 
             </div>
@@ -144,5 +154,5 @@
         </div>
     </div>
 </div>
-
+</div>
 <?php echo $footer; ?>
