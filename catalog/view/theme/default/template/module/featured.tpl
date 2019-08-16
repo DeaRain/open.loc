@@ -32,8 +32,8 @@
                                     </div>
                                     <div class="production-slider__item-prices">
                                         <?php if($product['special']) : ?>
-                                            <span class="production-slider__item-price"><?php echo $product['special']; ?> </span>
-                                            <span class="production-slider__item-old-price"><?php echo $product['price']; ?> </span>
+                                            <span class="production-slider__item-price"><?php echo $product['price']; ?> </span>
+                                            <span class="production-slider__item-old-price"><?php echo $product['special']; ?> </span>
                                         <?php else : ?>
                                             <span class="production-slider__item-price"><?php echo $product['price']; ?> </span>
                                         <?php endif; ?>
@@ -66,8 +66,8 @@
                                         </div>
                                     </div>
                                     <div class="production-slider__item-prices">
-                                        <span class="production-slider__item-price"><?php echo $product['special']; ?> </span>
-                                        <span class="production-slider__item-old-price"><?php echo $product['price']; ?> </span>
+                                        <span class="production-slider__item-price"><?php echo $product['price']; ?> </span>
+                                        <span class="production-slider__item-old-price"><?php echo $product['special']; ?> </span>
                                     </div>
                                     <div class="production-slider_extend-info">
                                         <?php echo number_format(100 - (float)$product['special'] / (float)$product['price'] * 100).'%';?>

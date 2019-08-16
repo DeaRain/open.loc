@@ -107,8 +107,8 @@
                             </div>
                             <div class="prod__prices">
                                 <?php if($product['special']) : ?>
-                                    <span class="prod__price"><?php echo $product['special']; ?> </span>
-                                    <span class="prod__old-price"><?php echo $product['price']; ?> </span>
+                                    <span class="prod__price"><?php echo $product['price']; ?> </span>
+                                    <span class="prod__old-price"><?php echo $product['special']; ?> </span>
                                 <?php else : ?>
                                     <span class="prod__price"><?php echo $product['price']; ?> </span>
                                 <?php endif; ?>
