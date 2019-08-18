@@ -246,5 +246,11 @@ $(document).ready(function () {
         }
     });
 
+    $(function() {
+        $('.products__selector').selectric({
+            arrowButtonMarkup: '<span class="icon-down-arrow-of-angle select__button""></span>',
+        });
+    });
+
 
 });

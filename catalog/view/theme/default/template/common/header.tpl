@@ -39,7 +39,9 @@
   <?php } ?>
 
   <link href="catalog/view/dist/css/main.css" rel="stylesheet">
+  <link href="catalog/view/dist/css/selectric.css" rel="stylesheet">
   <link href="catalog/view/dist/css/media.css" rel="stylesheet">
+
 </head>
 <body class="<?php echo $class; ?>">
 

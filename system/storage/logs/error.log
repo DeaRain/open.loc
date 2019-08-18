@@ -657,3 +657,59 @@
 2019-08-15 19:57:43 - PHP Notice:  Undefined variable: data in /var/www/open.loc/html/catalog/controller/checkout/cart.php on line 5
 2019-08-15 20:00:19 - PHP Notice:  Undefined variable: header in /var/www/open.loc/html/catalog/view/theme/default/template/error/not_found.tpl on line 1
 2019-08-17 10:51:26 - PHP Notice:  Undefined variable: class in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 40
+2019-08-18 13:57:33 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:57:33 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:57:34 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:57:34 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:58:16 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:58:16 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:58:17 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:58:17 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:58:32 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:58:32 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:58:33 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:58:33 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:27 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:27 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:28 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:28 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:32 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:32 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:33 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:33 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:34 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:34 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:34 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 13:59:34 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:00:47 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:00:47 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:00:48 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:00:48 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:01:14 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:01:14 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:01:14 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:01:14 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:02:03 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:02:03 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:02:03 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:02:03 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:02:03 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:02:03 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:02:04 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:02:04 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:49 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:49 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:49 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:49 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:49 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:49 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:50 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:50 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:50 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:50 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:51 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:51 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:51 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:51 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:52 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-18 14:03:52 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21

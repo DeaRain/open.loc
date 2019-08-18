@@ -11865,7 +11865,8 @@ a:visited {
     align-items: center; }
 .products .products__header .products__sort label {
     padding-top: 10px;
-    padding-left: 9px; }
+    padding-left: 9px;
+    padding-right: 15px; }
 .products .products__body {
     display: flex;
     justify-content: flex-start;
@@ -11908,6 +11909,13 @@ a:visited {
 .products .products__footer ul li:last-child .active {
     margin-right: auto; }
 
+.select__button {
+    position: absolute;
+    right: 12px;
+    top: 15px;
+    color: #1a1a1a;
+    font-size: 10px; }
+
 .prod {
     position: relative;
     display: flex;
@@ -11942,6 +11950,10 @@ a:visited {
     flex-direction: row;
     background-color: #f6f4f4; }
 .prod .prod__name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 233px;
     padding-top: 5px;
     font-family: Geometria;
     font-size: 14px;
@@ -11995,6 +12007,21 @@ a:visited {
     color: #1a1a1a;
     vertical-align: center; }
 
+.products__body_4 .prod__img {
+    width: 189px;
+    height: 189px; }
+
+.products__body_4 .prod__name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 169px; }
+
+.products__body_4 .prod__extend-info {
+    position: absolute;
+    top: 10px;
+    left: 10px; }
+
 .filter-header {
     padding-top: 10px;
     padding-bottom: 57px;
@@ -12013,6 +12040,7 @@ a:visited {
 .filter-list .filter-list__item {
     border-bottom: solid 1px #e6e6e6; }
 .filter-list .filter-list__item .filter-list__name {
+    text-decoration: none;
     display: block;
     padding: 31px 0px 28px;
     text-transform: uppercase;
@@ -12065,6 +12093,7 @@ a:visited {
     color: black;
     font-size: 10px; }
 .filter-list .filter-list__item li a {
+    text-decoration: none;
     font-family: Geometria;
     font-size: 14px;
     font-weight: normal;
@@ -12073,6 +12102,9 @@ a:visited {
     line-height: 1;
     letter-spacing: normal;
     color: #999999; }
+.filter-list .filter-list__item li a:hover {
+    text-decoration: none;
+    color: #1a1a1a; }
 .filter-list .filter-list__item .filter-list__name_active {
     padding: 31px 0px 25px; }
 .filter-list .filter-list__item .filter-list__name_active:after {
@@ -12082,6 +12114,8 @@ a:visited {
     font-size: 14px;
     right: -4px;
     top: 25px; }
+.filter-list .filter-list__item .filter-list__active {
+    color: #1a1a1a; }
 
 .filter-list .filter-list__item_color ul {
     display: flex;
@@ -12343,6 +12377,9 @@ a:visited {
     line-height: 1;
     letter-spacing: 2px;
     text-align: center;
+    color: #ffffff; }
+.mfilter-button-reset:hover {
+    text-decoration: none;
     color: #ffffff; }
 .mfilter-button-reset:visited {
     color: #ffffff; }

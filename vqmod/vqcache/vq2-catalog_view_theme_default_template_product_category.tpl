@@ -14,7 +14,8 @@
 
 <div class="container">
     <div class="cat-info">
-        <img src="<?php echo $thumb; ?>" alt="" class="cat-info__img">
+<!--        <img src="--><?php //echo $thumb; ?><!--" alt="" class="cat-info__img">-->
+        <img src="/image/catalog/bitmap-17@3x.jpg" alt="" class="cat-info__img">
         <div class="cat-info__right-block">
             <div class="cat-info__header"><?php echo $heading_title; ?></div>
             <div class="cat-info__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -41,7 +42,7 @@
         </div>
 
         <div class="catalog__right-block">
-                <?php echo $content_top; ?><div id="mfilter-content-container">
+
                 <?php if ($products) : ?>
                 <div class="products">
                     <div class="products__header">
@@ -70,21 +71,8 @@
                             </select>
                         </div>
                     </div>
-                    <!--                <label class="control-label" for="input-limit">-->
-                    <?php //echo $text_limit; ?><!--</label>-->
-                    <!--                <select id="input-limit" class="form-control" onchange="location = this.value;">-->
-                    <!--                    --><?php //foreach ($limits as $limits) { ?>
-                    <!--                        --><?php //if ($limits['value'] == $limit) { ?>
-                    <!--                            <option value="-->
-                    <?php //echo $limits['href']; ?><!--" selected="selected">-->
-                    <?php //echo $limits['text']; ?><!--</option>-->
-                    <!--                        --><?php //} else { ?>
-                    <!--                            <option value="--><?php //echo $limits['href']; ?><!--">-->
-                    <?php //echo $limits['text']; ?><!--</option>-->
-                    <!--                        --><?php //} ?>
-                    <!--                    --><?php //} ?>
-                    <!--                </select>-->
 
+                    <?php echo $content_top; ?><div id="mfilter-content-container">
                     <div class="products__body">
                         <?php foreach ($products as $product) { ?>
 
@@ -133,6 +121,8 @@
                         <?php echo $pagination; ?>
                     </div>
                 </div>
+                <?php else : ?>
+                    <?php echo $content_top; ?><div id="mfilter-content-container">
                 <?php endif; ?>
         </div>
     </div>

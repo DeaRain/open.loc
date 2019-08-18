@@ -42,7 +42,9 @@
   <?php } ?>
 
   <link href="catalog/view/dist/css/main.css" rel="stylesheet">
+  <link href="catalog/view/dist/css/selectric.css" rel="stylesheet">
   <link href="catalog/view/dist/css/media.css" rel="stylesheet">
+
 </head>
 <body class="<?php echo $class; ?>">
 
@@ -110,7 +112,7 @@
               <i class="icon-menu"></i>
             </div>
             <span class="menu-button__text">
-                            MENU1dfsdf
+                            MENU
                         </span>
           </div>
 
@@ -148,7 +150,6 @@
             <a class="contact" href="tel:<?php echo str_replace(array(' ', '(', ')', '-','+'),'',$telephone);?>" >+<?php echo $telephone; ?></a>
           </div>
         </div>
-
         <div class="header-container__center-logo">
 <!--          <img src="catalog/view/dist/img/logo.svg" class="logo__img">-->
             <a href=""><img src="<?php echo $logo; ?>" class="logo__img"></a>
