@@ -24,7 +24,8 @@
 	$buttons = array( 'top' => array(), 'bottom' => array() );
 	
 	if( ! empty( $settings['show_reset_button'] ) ) {
-		$buttons['bottom'][] = sprintf( $button_temp, 'mfilter-button-reset', '<i class="mfilter-reset-icon"></i>' . $text_reset_all );
+//		$buttons['bottom'][] = sprintf( $button_temp, 'mfilter-button-reset', '<i class="mfilter-reset-icon"></i>' . $text_reset_all );
+		$buttons['bottom'][] = sprintf( $button_temp, 'mfilter-button-reset', $text_reset_all );
 	}
 	
 	if( ! empty( $settings['show_top_reset_button'] ) ) {
@@ -115,7 +116,7 @@
 										<i class="fa fa-question pull-right" data-mf-toggle="tooltip" data-html="1" title="<?php echo $filter['tooltip']; ?>"></i>
 									<?php } ?>
 								</div>
-								<i class="mfilter-head-icon"></i>
+<!--								<i class="mfilter-head-icon"></i>-->
 							</div>
 						</div>
 					<?php } ?>
@@ -230,16 +231,16 @@
 													class="form-control"
 													value="<?php echo isset( $params['price'][0] ) ? $params['price'][0] : ''; ?>"
 													/>
-													<?php echo $getSymbolRight; ?>
-													-
-												<?php echo $getSymbolLeft; ?>
+<!--													--><?php //echo $getSymbolRight; ?>
+<!--													--->
+<!--												--><?php //echo $getSymbolLeft; ?>
 												<input
 													id="mfilter-opts-price-max"
 													type="text"
 													class="form-control"
 													value="<?php echo isset( $params['price'][1] ) ? $params['price'][1] : ''; ?>"
 													/>
-													<?php echo $getSymbolRight; ?>
+<!--													--><?php //echo $getSymbolRight; ?>
 											</div>
 											<div class="mfilter-price-slider">
 												<div id="mfilter-price-slider"></div>

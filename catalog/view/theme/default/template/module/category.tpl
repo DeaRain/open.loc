@@ -5,8 +5,8 @@
 
 
             <div class="filter-list__item">
-                <a class="filter-list__name" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
         <?php if ($category['children']) : ?>
+            <a class="filter-list__name filter-list__name_active" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
                 <ul>
                     <?php foreach ($category['children'] as $child) : ?>
 
@@ -19,6 +19,8 @@
 
                     <?php endforeach; ?>
                 </ul>
+        <?php else: ?>
+            <a class="filter-list__name" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
         <?php endif; ?>
             </div>
 

@@ -656,3 +656,4 @@
 2019-08-15 14:47:22 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/open.loc/html/admin/index.php:84) in /var/www/open.loc/html/system/library/response.php on line 12
 2019-08-15 19:57:43 - PHP Notice:  Undefined variable: data in /var/www/open.loc/html/catalog/controller/checkout/cart.php on line 5
 2019-08-15 20:00:19 - PHP Notice:  Undefined variable: header in /var/www/open.loc/html/catalog/view/theme/default/template/error/not_found.tpl on line 1
+2019-08-17 10:51:26 - PHP Notice:  Undefined variable: class in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_product_category.tpl on line 40
