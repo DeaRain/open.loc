@@ -10364,11 +10364,11 @@ a.text-dark:hover, a.text-dark:focus {
 /*# sourceMappingURL=bootstrap.css.map */
 @font-face {
     font-family: 'icomoon';
-    src:  url('fonts/icomoon.eot?4y0gmt');
-    src:  url('fonts/icomoon.eot?4y0gmt#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?4y0gmt') format('truetype'),
-    url('fonts/icomoon.woff?4y0gmt') format('woff'),
-    url('fonts/icomoon.svg?4y0gmt#icomoon') format('svg');
+    src:  url('fonts/icomoon.eot?2oi96m');
+    src:  url('fonts/icomoon.eot?2oi96m#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?2oi96m') format('truetype'),
+    url('fonts/icomoon.woff?2oi96m') format('woff'),
+    url('fonts/icomoon.svg?2oi96m#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -10388,6 +10388,18 @@ a.text-dark:hover, a.text-dark:focus {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-star:before {
+    content: "\e913";
+}
+.icon-ruler:before {
+    content: "\e914";
+}
+.icon-clock:before {
+    content: "\e91d";
+}
+.icon-share:before {
+    content: "\e91e";
+}
 .icon-cross-remove-sign:before {
     content: "\e911";
 }
@@ -12423,7 +12435,7 @@ a:visited {
     color: #1a1a1a; }
 
 .sing-prod {
-    margin-top: 50px;
+    margin-top: 60px;
     display: flex;
     flex-direction: row; }
 .sing-prod .sing-prod__left {
@@ -12433,30 +12445,70 @@ a:visited {
     justify-items: center; }
 .sing-prod .sing-prod__left .sing-prod__img {
     width: 555px;
-    height: 555px; }
+    height: 555px;
+    border: solid 1px #cccccc; }
 .sing-prod .sing-prod__left .sing-prod__sale {
+    position: absolute;
+    top: 495px;
+    left: 15px;
     width: 525px;
     height: 45px;
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f6f4f4; }
+.sing-prod .sing-prod__left .sing-prod__sale .sing-prod__saleText {
+    padding-top: 4px;
+    margin-left: 15px;
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: #1a1a1a; }
+.sing-prod .sing-prod__left .sing-prod__sale .sing-prod__saleTime {
+    padding-top: 4px;
+    margin-right: 13px;
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-align: right;
+    color: #999999; }
+.sing-prod .sing-prod__left .sing-prod__sale .sing-prod__saleTime:before {
+    margin-right: 10px;
+    font-family: 'icomoon';
+    content: "\e91d"; }
 .sing-prod .sing-prod__left .sing-prod__extend-info {
     position: absolute;
     top: 15px;
     left: 15px;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     background-color: #f6f4f4;
     font-family: Geometria;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
     line-height: 45px;
     letter-spacing: normal;
     text-align: center;
-    color: #1a1a1a;
-    vertical-align: center; }
+    color: #1a1a1a; }
+.sing-prod .sing-prod__left .sing-prod__slider {
+    margin-top: 15px;
+    width: 555px; }
 .sing-prod .sing-prod__left .sing-prod__slider .sing-prod__slider-img {
+    width: 90px;
+    height: 90px;
+    border: solid 1px #cccccc; }
+.sing-prod .sing-prod__left .sing-prod__slider .slick-slide {
+    margin: 0 5px;
     width: 90px;
     height: 90px; }
 .sing-prod .sing-prod__right {
@@ -12464,7 +12516,9 @@ a:visited {
     display: flex;
     flex-direction: column; }
 .sing-prod .sing-prod__right .sing-prod__header {
-    padding-bottom: 30px;
+    padding-top: 5px;
+    text-transform: uppercase;
+    padding-bottom: 27px;
     font-family: Geometria Bold;
     font-size: 24px;
     font-weight: bold;
@@ -12483,11 +12537,13 @@ a:visited {
     line-height: 1;
     letter-spacing: normal;
     color: #999999; }
-.sing-prod .sing-prod__right .sing-prod__menu .sing_prod__favorite {
-    margin-left: 60px; }
-.sing-prod .sing-prod__right .sing-prod__menu .sing_prod__share {
-    margin-left: 30px; }
-.sing-prod .sing-prod__right .sing-prod_mText {
+.sing-prod .sing-prod__right .sing-prod__menu .sing-prod__reviews {
+    display: flex; }
+.sing-prod .sing-prod__right .sing-prod__menu .sing-prod__reviews span {
+    font-size: 14px;
+    margin-right: 6px; }
+.sing-prod .sing-prod__right .sing-prod__menu .sing-prod__reviews div {
+    margin-left: 4px;
     font-family: Geometria;
     font-size: 14px;
     font-weight: normal;
@@ -12495,13 +12551,239 @@ a:visited {
     font-stretch: normal;
     line-height: 1;
     letter-spacing: normal;
-    color: #1a1a1a; }
+    color: #999999; }
+.sing-prod .sing-prod__right .sing-prod__menu .sing_prod__favorite {
+    display: flex;
+    margin-left: 62px; }
+.sing-prod .sing-prod__right .sing-prod__menu .sing_prod__favorite div {
+    margin-left: 11px; }
+.sing-prod .sing-prod__right .sing-prod__menu .sing_prod__share {
+    display: flex;
+    margin-left: 30px; }
+.sing-prod .sing-prod__right .sing-prod__menu .sing_prod__share div {
+    margin-left: 11px; }
 .sing-prod .sing-prod__right .sing-prod__info {
-    margin-top: 30px;
+    margin-top: 33px;
     margin-bottom: 30px;
     display: flex;
     flex-wrap: wrap; }
 .sing-prod .sing-prod__right .sing-prod__info .sing_prod__brend, .sing-prod .sing-prod__right .sing-prod__info .sing_prod__length {
-    margin-left: 20px; }
+    margin-left: 28px; }
 .sing-prod .sing-prod__right .sing-prod__info .sing_prod__material {
     margin-top: 15px; }
+.sing-prod .sing-prod__right .sing-prod_mText {
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 0px;
+    color: #1a1a1a; }
+.sing-prod .sing-prod__right .sing-prod_mText b {
+    font-family: Geometria Bold; }
+.sing-prod .sing-prod__right .sing-prod_mText .icon-ruler {
+    font-size: 16px;
+    margin-left: 26px;
+    margin-right: 10px; }
+.sing-prod .sing-prod__right .sing-prod__colors {
+    margin-top: 11px; }
+.sing-prod .sing-prod__right .sing-prod__colors ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    margin-bottom: 23px; }
+.sing-prod .sing-prod__right .sing-prod__colors li {
+    margin: 0px 15px 0px 0px;
+    list-style-type: none; }
+.sing-prod .sing-prod__right .sing-prod__colors li input[type="radio"] {
+    display: none; }
+.sing-prod .sing-prod__right .sing-prod__colors li label {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; }
+.sing-prod .sing-prod__right .sing-prod__colors li label:before {
+    content: ' ';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    margin: 0px;
+    vertical-align: middle;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%; }
+.sing-prod .sing-prod__right .sing-prod__colors li input[type="radio"]:checked + label:before {
+    content: "\e912";
+    font-family: icomoon;
+    color: #ffffff;
+    font-size: 10px; }
+.sing-prod .sing-prod__right .sing-prod__sizes {
+    margin-top: 12px; }
+.sing-prod .sing-prod__right .sing-prod__sizes ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    margin-bottom: 23px; }
+.sing-prod .sing-prod__right .sing-prod__sizes li {
+    margin: 0px 15px 0px 0px;
+    list-style-type: none; }
+.sing-prod .sing-prod__right .sing-prod__sizes li input[type="radio"] {
+    display: none; }
+.sing-prod .sing-prod__right .sing-prod__sizes li label {
+    line-height: 44px;
+    text-align: center;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    border: 1px solid silver;
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    color: #1a1a1a; }
+.sing-prod .sing-prod__right .sing-prod__sizes li input[type="radio"]:checked + label {
+    border: 1px solid black; }
+.sing-prod .sing-prod__right .sing-prod__prices {
+    margin-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; }
+.sing-prod .sing-prod__right .sing-prod__prices .sing-prod__opt {
+    font-family: Geometria;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #999999;
+    margin-bottom: 3px; }
+.sing-prod .sing-prod__right .sing-prod__prices .sing-prod__opt b {
+    margin-left: 1px;
+    font-family: Geometria Bold;
+    font-weight: bold;
+    color: #1a1a1a; }
+.sing-prod .sing-prod__right .sing-prod__prices .sing-prod__price-cur .sing-prod__old-price {
+    font-family: Geometria;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: right;
+    color: #999999;
+    text-decoration: line-through; }
+.sing-prod .sing-prod__right .sing-prod__prices .sing-prod__price-cur .sing-prod__price {
+    padding-right: 1px;
+    margin-top: 8px;
+    font-family: Geometria;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: right;
+    color: #1a1a1a; }
+.sing-prod .sing-prod__right .sing-prod__buttons {
+    margin-top: 22px;
+    display: flex; }
+.sing-prod .sing-prod__right .sing-prod__buttons .sing-prod__count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; }
+.sing-prod .sing-prod__right .sing-prod__buttons .sing-prod__count .sing-prod__c-header {
+    margin-top: 3px;
+    font-family: Geometria;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #1a1a1a; }
+.sing-prod .sing-prod__right .sing-prod__buttons .sing-prod__count .sing-prod__c-input {
+    display: flex;
+    width: 125px;
+    height: 40px;
+    border: solid 1px #e6e6e6;
+    justify-content: center;
+    align-items: center; }
+.sing-prod .sing-prod__right .sing-prod__buttons .sing-prod__count .sing-prod__c-input input {
+    border: none;
+    padding: 3px 0px;
+    width: 66px;
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: #1a1a1a; }
+.sing-prod .sing-prod__right .sing-prod__buttons .sing-prod__count .sing-prod__c-input span {
+    font-size: 10px;
+    padding: 5px; }
+.sing-prod .sing-prod__right .sing-prod__buttons .sing-prod__click, .sing-prod .sing-prod__right .sing-prod__buttons .sing-prod__cart {
+    margin-left: 15px;
+    width: 200px;
+    height: 60px;
+    border: solid 1px #1a1a1a;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 60px;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #1a1a1a; }
+.sing-prod .sing-prod__right .sing-prod__buttons .sing-prod__cart {
+    background-color: #1a1a1a;
+    color: #ffffff; }
+.sing-prod .sing-prod__right .sing-prod__buttons .sing-prod__cart span {
+    font-size: 24px;
+    line-height: 20px;
+    margin-right: 10px; }
+.sing-prod .sing-prod__right .sing-prod__details {
+    margin-top: 27px; }
+.sing-prod .sing-prod__right .sing-prod__details .sing-prod__discription {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-top: solid 1px #e6e6e6;
+    margin-top: 9px;
+    padding-top: 16px;
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: 1px;
+    color: #1a1a1a; }
+.sing-prod .sing-prod__right .sing-prod__details .sing-prod__disc-button {
+    padding-top: 9px;
+    font-family: Geometria;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: right;
+    color: #999999; }
+.sing-prod .sing-prod__right .sing-prod__details .sing-prod__disc-button span {
+    font-size: 10px;
+    margin-left: 5px; }

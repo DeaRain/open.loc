@@ -713,3 +713,12 @@
 2019-08-18 14:03:51 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
 2019-08-18 14:03:52 - PHP Warning:  session_start(): open(/var/lib/php/sessions/sess_re965v6b7f3sg3l1c64gm5of41, O_RDWR) failed: Permission denied (13) in /var/www/open.loc/html/system/library/session.php on line 21
 2019-08-18 14:03:52 - PHP Warning:  session_start(): Failed to read session data: files (path: /var/lib/php/sessions) in /var/www/open.loc/html/system/library/session.php on line 21
+2019-08-19 15:50:46 - PHP Notice:  Undefined variable: product in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 74
+2019-08-19 15:50:47 - PHP Notice:  Undefined variable: product in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 74
+2019-08-19 15:50:48 - PHP Notice:  Undefined variable: product in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 74
+2019-08-19 15:51:03 - PHP Notice:  Undefined variable: product in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 74
+2019-08-19 15:52:02 - PHP Notice:  Undefined variable: product in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 74
+2019-08-19 15:52:03 - PHP Notice:  Undefined variable: product in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 74
+2019-08-19 15:52:08 - PHP Notice:  Undefined variable: product in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 74
+2019-08-19 16:10:47 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 103
+2019-08-19 16:11:03 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 103
