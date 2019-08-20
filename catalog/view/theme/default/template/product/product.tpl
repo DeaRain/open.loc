@@ -243,16 +243,24 @@ $('#button-cart').on('click', function() {
 				// Highlight any found errors
 				$('.text-danger').parent().addClass('has-error');
 			}
-
 			if (json['success']) {
+                $('#cart_opp').remove();
+                $('#product').after('<div id="cart_opp" class="my-alert">' + json.success + '</div>');
+
+
 				$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
 				$('#cart > button').html('<i class="fa fa-shopping-cart"></i> ' + json['total']);
 
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
+				// $('html, body').animate({ scrollTop: 0 }, 'slow');
 
-				$('#cart > ul').load('index.php?route=common/cart/info ul li');
+				$('#cart').load('index.php?route=common/cart/info');
 			}
+
+            $('#cart_opp').click(function () {
+                $('#cart_opp').toggle(100);
+            });
+
 		},
         error: function(xhr, ajaxOptions, thrownError) {
             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);

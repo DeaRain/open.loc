@@ -262,3 +262,6 @@ catalog/language/russian/total/voucher.php
 catalog/view/theme/default/template/total/voucher.tpl
 catalog/view/theme/default/template/checkout/cart.tpl
 catalog/model/localisation/zone.php
+catalog/controller/checkout/checkout.php
+catalog/language/english/checkout/checkout.php
+catalog/language/russian/checkout/checkout.php

@@ -163,8 +163,8 @@
             <span class="interface-item__counter">4</span>
           </div>
           <div class="interface-item">
-            <span class="icon-shopping-bag interface-item__icon"></span>
-            <span class="interface-item__counter">4</span>
+              <?php echo $cart ; ?>
+
           </div>
           <div class="interface-item">
             <span class="icon-user interface-item__icon"></span>

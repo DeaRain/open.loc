@@ -722,3 +722,9 @@
 2019-08-19 15:52:08 - PHP Notice:  Undefined variable: product in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 74
 2019-08-19 16:10:47 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 103
 2019-08-19 16:11:03 - PHP Notice:  Undefined offset: 0 in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 103
+2019-08-20 13:13:13 - PHP Notice:  Undefined variable: text_cart in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_common_header.tpl on line 166
+2019-08-20 13:14:19 - PHP Notice:  Undefined variable: text_cart in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_common_header.tpl on line 167
+2019-08-20 13:15:28 - PHP Notice:  Undefined variable: text_cart in /var/www/open.loc/html/vqmod/vqcache/vq2-catalog_view_theme_default_template_common_header.tpl on line 167
+2019-08-20 13:54:09 - PHP Notice:  Undefined variable: total in /var/www/open.loc/html/catalog/view/theme/default/template/common/cart.tpl on line 3
+2019-08-20 13:54:15 - PHP Notice:  Undefined variable: total in /var/www/open.loc/html/catalog/view/theme/default/template/common/cart.tpl on line 3
+2019-08-20 13:54:18 - PHP Notice:  Undefined variable: total in /var/www/open.loc/html/catalog/view/theme/default/template/common/cart.tpl on line 3

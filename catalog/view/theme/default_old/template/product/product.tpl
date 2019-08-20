@@ -464,6 +464,7 @@ $('#button-cart').on('click', function() {
 			}
 
 			if (json['success']) {
+
 				$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
 				$('#cart > button').html('<i class="fa fa-shopping-cart"></i> ' + json['total']);
