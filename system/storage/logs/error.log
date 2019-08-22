@@ -728,3 +728,5 @@
 2019-08-20 13:54:09 - PHP Notice:  Undefined variable: total in /var/www/open.loc/html/catalog/view/theme/default/template/common/cart.tpl on line 3
 2019-08-20 13:54:15 - PHP Notice:  Undefined variable: total in /var/www/open.loc/html/catalog/view/theme/default/template/common/cart.tpl on line 3
 2019-08-20 13:54:18 - PHP Notice:  Undefined variable: total in /var/www/open.loc/html/catalog/view/theme/default/template/common/cart.tpl on line 3
+2019-08-21 11:40:36 - PHP Warning:  unlink(/var/www/open.loc/html/system/storage/cache/cache.country.status.1566313556): No such file or directory in /var/www/open.loc/html/system/library/cache/file.php on line 17
+2019-08-21 11:40:37 - PHP Warning:  unlink(/var/www/open.loc/html/system/storage/cache/cache.language.1566313328): No such file or directory in /var/www/open.loc/html/system/library/cache/file.php on line 17

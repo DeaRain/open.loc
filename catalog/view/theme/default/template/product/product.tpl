@@ -3,6 +3,27 @@
 <script>
     $(document).ready(function () {
 
+        $('.feed__button').click(function (e) {
+            $('.feed__container').toggleClass('feed__container__hide');
+        });
+
+        $('#value-up').click(function (e) {
+            $('#input-quantity').val(parseInt($('#input-quantity').val())+1);
+        });
+
+        $('#value-down').click(function (e) {
+            var count = parseInt($('#input-quantity').val());
+            if(count>1) {
+                $('#input-quantity').val(count - 1);
+            }
+        });
+
+        $('#disc').click(function (e) {
+            $('.sing-prod__details').toggleClass("disc_active")
+        });
+
+
+
         $('.sing-prod__img').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -138,7 +159,6 @@
                     <div class="sing-prod__price-cur">
                         <div class="sing-prod__old-price">
                             <?php if($special) echo $special; ?>
-                            65 UAH
                         </div>
                         <div class="sing-prod__price">
                             <?php echo $price; ?>
@@ -149,10 +169,10 @@
                     <div class="sing-prod__count">
                         <div class="sing-prod__c-header"><?php echo $entry_qty; ?></div>
                         <div class="sing-prod__c-input">
-                            <span class="icon-right-chevron-1_2"></span>
+                            <span id="value-down"  class="icon-right-chevron-1_2"></span>
                             <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-                            <span class="icon-right-chevron-1_3"></span>
+                            <span id="value-up" class="icon-right-chevron-1_3"></span>
                         </div>
                     </div>
                     <div class="sing-prod__click">
@@ -167,20 +187,63 @@
                     <div class="sing-prod__discription">
                         <?php echo $description; ?>
                     </div>
-                    <div class="sing-prod__disc-button">
+                    <div id="disc"  class="sing-prod__disc-button">
                         розгорнути
                         <span class="icon-down-arrow-of-angle"></span>
                     </div>
                 </div>
-
-
-
             </div>
-
-
         </div>
     </div>
 </div>
+
+<div id="review"></div>
+
+<?php if ($review_status) { ?>
+<div class="container" id="tab-review" >
+    <div class="feed">
+        <div class="feed__button"><span><?php echo $text_write; ?></span> </div>
+        <form id="form-review">
+        <div class="feed__container feed__container__hide">
+            <?php if ($review_guest) { ?>
+            <div class="feed__name">
+                <input type="text" name="name" value="" id="input-name" placeholder="<?php echo $entry_name; ?>"/>
+            </div>
+
+            <div class="feed__text">
+                <textarea name="text" rows="5" id="input-review" placeholder="<?php echo $entry_review; ?>"></textarea>
+            </div>
+            <div class="feed__divine">
+                <div class="feed__mark">
+                    &nbsp;&nbsp;&nbsp; <?php echo $entry_bad; ?>&nbsp;
+                    <input type="radio" name="rating" value="1"/>
+                    &nbsp;
+                    <input type="radio" name="rating" value="2"/>
+                    &nbsp;
+                    <input type="radio" name="rating" value="3"/>
+                    &nbsp;
+                    <input type="radio" name="rating" value="4"/>
+                    &nbsp;
+                    <input type="radio" name="rating" value="5"/>
+                    &nbsp;<?php echo $entry_good; ?>
+                </div>
+
+            <?php echo $captcha; ?>
+
+                <div class="feed__submit">
+                    <button  type="button" id="button-review" data-loading-text="<?php echo $text_loading; ?>"> <?php echo $button_continue; ?></button>
+                </div>
+            </div>
+
+            <?php } else { ?>
+                <?php echo $text_login; ?>
+            <?php } ?>
+        </div>
+        </form>
+    </div>
+</div>
+
+<?php } ?>
 
 <?php echo $column_left; ?>
 <?php echo $content_top; ?>

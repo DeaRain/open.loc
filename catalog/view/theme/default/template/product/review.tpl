@@ -1,23 +1,32 @@
 <?php if ($reviews) { ?>
-<?php foreach ($reviews as $review) { ?>
-<table class="table table-striped table-bordered">
-  <tr>
-    <td style="width: 50%;"><strong><?php echo $review['author']; ?></strong></td>
-    <td class="text-right"><?php echo $review['date_added']; ?></td>
-  </tr>
-  <tr>
-    <td colspan="2"><p><?php echo $review['text']; ?></p>
-      <?php for ($i = 1; $i <= 5; $i++) { ?>
-      <?php if ($review['rating'] < $i) { ?>
-      <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-      <?php } else { ?>
-      <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-      <?php } ?>
-      <?php } ?></td>
-  </tr>
-</table>
-<?php } ?>
-<div class="text-right"><?php echo $pagination; ?></div>
-<?php } else { ?>
-<p><?php echo $text_no_reviews; ?></p>
+
+    <div class="container">
+
+        <div class="product__header">відгуки</div>
+
+        <div class="reviews">
+            <?php foreach ($reviews as $review) { ?>
+                <div class="review">
+                    <div class="review__header">
+                        <div class="review__h-left">
+                            <span class="review__name"><?php echo $review['author']; ?></span>
+                            <span class="review__date"><?php echo $review['date_added']; ?></span>
+                        </div>
+                        <div class="review__h-right">
+                            <?php for ($i = 1; $i <= 5; $i++) { ?>
+                                <?php if ($review['rating'] < $i) { ?>
+                                    <span class="icon-star"></span>
+                                <?php } else { ?>
+                                    <span class="icon-star span_active"></span>
+                                <?php } ?>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="review__body">
+                        <?php echo $review['text']; ?>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
 <?php } ?>
