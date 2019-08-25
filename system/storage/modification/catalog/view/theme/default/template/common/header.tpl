@@ -127,10 +127,24 @@
 
                 <ul id="menu-menu-left" class="left-menu">
                 <?php foreach ($informations as $information) { ?>
-                   <?php if($information['title']!='Галерея') : ?>
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-132"><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
-                    <?php else :?>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-132"><a href="<?php echo $galery_href; ?>">Галерея</a></li>
+                    <?php if($information['parent']=='1') : ?>
+
+                        <?php if($information['title']!='Галерея') : ?>
+                            <li class="menu-item"><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
+                        <?php else :?>
+                            <li class="menu-item"><a href="<?php echo $galery_href; ?>">Галерея</a></li>
+                        <?php endif; ?>
+
+                    <?php elseif($information['bottom']=='0') :?>
+                        <li id="menu-item-120" class="menu-item menu-item-has-children"><a href="javascript:void(0);"><?php echo $information['title']; ?></a>
+                          <ul class="sub-menu">
+                              <?php foreach ($informations as $sub_inf) { ?>
+                                  <?php if($information['parent'] == $sub_inf['parent'] && $sub_inf['bottom']==1) : ?>
+                                  <li class="menu-item"><a href="<?php echo $sub_inf['href']; ?>"><?php echo $sub_inf['title']; ?></a></li>
+                                  <?php endif; ?>
+                              <?php } ?>
+                          </ul>
+                        </li>
                     <?php endif; ?>
                 <?php } ?>
 
@@ -158,7 +172,7 @@
           <div class="interface-item interface-item-search">
             <span class="icon-magnifying-glass interface-item__icon"></span>
           </div>
-          <div class="interface-item">
+            <div class="interface-item">
             <span class="icon-heart interface-item__icon "></span>
             <span class="interface-item__counter">4</span>
           </div>
@@ -167,7 +181,7 @@
 
           </div>
           <div class="interface-item">
-            <span class="icon-user interface-item__icon"></span>
+            <span  id="auth_menu" class="icon-user interface-item__icon"></span>
           </div>
 
 
@@ -184,47 +198,116 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="header-menu-container">
-        <nav>
-          <div class="top-menu-changer">
-            <span class="top-menu-changer__text">каталог продукції</span>
-            <span class="icon-down-arrow-of-angle top-menu-changer__arrow"></span>
-          </div>
-          <ul class="top-menu">
+        <div class="auth-container"></div>
 
-<!--              <pre>--><?php //var_dump($categories);  ?><!--</pre>-->
+        <div class="auth auth_hide">
+            <div class="auth__sub-head">авторизація
+                <span id="auth_close" class="icon-cross-remove-sign"></span>
+            </div>
+            <div class="auth__container">
+                <div class="auth__left">
+                    <div class="auth__sub-head2">Вхід</div>
+                    <div class="auth__input">
+                        <input type="text" placeholder="Email">
+                    </div>
+                    <div class="auth__input">
+                        <input type="text" placeholder="Пароль">
+                    </div>
+                    <div class="auth__divine">
+                        <div class="auth__checkbox">
+                            <input type="checkbox" id="registerr">
+                            <label for="registerr">Показати пароль</label>
+                        </div>
+                        <div class="auth__forgot">
+                            <a href="#">Забули пароль?</a>
+                        </div>
+                    </div>
+                    <div class="auth__login">
+                        <a href="#">Вхід</a>
+                    </div>
+                    <span class="auth__span">Вхід через соц мережі</span>
+                    <div class="auth__soc">
+                        <div class="auth__facebook">
+                            <a href="#">facebook</a>
+                        </div>
+                        <div class="auth__google">
+                            <a href="#">google +</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="auth__right">
+                    <div class="auth__sub-head2">Реєстрація</div>
+                    <div class="auth__input">
+                        <input type="text" placeholder="Ім’я">
+                    </div>
+                    <div class="auth__input">
+                        <input type="text" placeholder="Прізвище">
+                    </div>
+                    <div class="auth__input">
+                        <input type="text" placeholder="Телефон">
+                    </div>
+                    <div class="auth__input">
+                        <input type="text" placeholder="Email">
+                    </div>
+                    <div class="auth__input">
+                        <input type="text" placeholder="Пароль">
+                    </div>
+                    <div class="auth__checkbox">
+                        <input type="checkbox" id="registers">
+                        <label for="registers">Показати пароль</label>
+                    </div>
+                    <div class="auth__register">
+                        <a href="#">Зареєструватись</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-              <?php foreach ($categories as $category) : ?>
+  </div>
+      <div class="container">
+          <div class="header-menu-container">
+              <nav>
+                  <div class="top-menu-changer">
+                      <span class="top-menu-changer__text">каталог продукції</span>
+                      <span class="icon-down-arrow-of-angle top-menu-changer__arrow"></span>
+                  </div>
+                  <ul class="top-menu">
 
-              <li class="top-menu__item top-menu__item_dropdown">
+                      <!--              <pre>--><?php //var_dump($categories);  ?><!--</pre>-->
 
-                  <a <?php echo 'href="'.$category['href'].'"'; ?> class="top-menu__item-url"><?= $category['name']?></a>
-                  <?php if($category['children']) :?>
+                      <?php foreach ($categories as $category) : ?>
+                          <?php if($category['children']) :?>
+                          <li class="top-menu__item top-menu__item_dropdown">
 
-                  <div class="top-menu__item-container">
-                      <div class="container">
-                          <div class="top-menu__item-container-inside">
+                              <a <?php echo 'href="'.$category['href'].'"'; ?> class="top-menu__item-url"><?= $category['name']?></a>
 
-                      <?php foreach ($category['children'] as $children) : ?>
-                          <a href="<?=$children['href'] ?>" class="top-menu__item-container-item">
-                              <img src="<?=$children['image'] ?>" class="top-menu__item-container-item-image">
-                              <span class="top-menu__item-container-item-header">
+
+                                  <div class="top-menu__item-container">
+                                      <div class="container">
+                                          <div class="top-menu__item-container-inside">
+
+                                              <?php foreach ($category['children'] as $children) : ?>
+                                                  <a href="<?=$children['href'] ?>" class="top-menu__item-container-item">
+                                                      <img src="<?=$children['image'] ?>" class="top-menu__item-container-item-image">
+                                                      <span class="top-menu__item-container-item-header">
                                             <?=$children['name'] ?>
                               </span>
-                          </a>
+                                                  </a>
+                                              <?php endforeach;?>
+                                          </div>
+                                      </div>
+                                  </div>
+                          </li>
+                          <?php else : ?>
+                              <li class="top-menu__item">
+                                  <a <?php echo 'href="'.$category['href'].'"'; ?> class="top-menu__item-url"><?= $category['name']?></a>
+                              </li>
+                          <?php endif; ?>
                       <?php endforeach;?>
-                          </div>
-                      </div>
-                  </div>
-                  <?php endif; ?>
-              </li>
-              <?php endforeach;?>
-          </ul>
-        </nav>
+                  </ul>
+              </nav>
+          </div>
       </div>
-    </div>
-  </div>
       <div class="header-search">
           <div class="container">
               <?php echo $search; ?>

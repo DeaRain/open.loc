@@ -108,6 +108,39 @@
 
 <script src="catalog/view/dist/js/common.js"></script>
 
+<script>
+    $(document).ready(function () {
+
+        $('#auth_menu').click(function () {
+            // $('.auth').toggle();
+            $('.auth').toggleClass('auth_hide');
+            $('.auth-container').animate({height: "100vh", top: "0px"}, 300);
+            $('.auth').animate({opacity: "1"}, 400);
+        });
+
+        $('.auth-container').click(function () {
+            $('.auth').animate({opacity: "0"}, 300);
+            $('.auth-container').animate({height: "0px", top: "50vh"}, 300);
+            $('.auth-container').animate({top: "0vh"}, 1);
+            function authHide (){
+                $('.auth').toggleClass('auth_hide');
+            }
+            setTimeout(authHide, 300);
+        });
+
+        $('#auth_close').click(function () {
+            $('.auth').animate({opacity: "0"}, 300);
+            $('.auth-container').animate({height: "0px", top: "50vh"}, 300);
+            $('.auth-container').animate({top: "0vh"}, 1);
+            function authHide (){
+                $('.auth').toggleClass('auth_hide');
+            }
+            setTimeout(authHide, 300);
+        });
+
+    });
+</script>
+
 <!--
 OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
 Please donate via PayPal to donate@opencart.com

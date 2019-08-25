@@ -107,16 +107,19 @@ $data['extra_tags'] = $this->document->getExtraTags();
         $data['informations'] = array();
 
 
+
         foreach ($this->model_catalog_information->getInformations() as $result) {
-            if ($result['top']) {
+            if ($result['top'])
+            {
                 $data['informations'][] = array(
+                    'parent' => $result['parent'],
+                    'bottom' => $result['bottom'],
                     'title' => $result['title'],
-                    'href'  => $this->url->link('information/information', 'information_id=' . $result['information_id'])
+                    'href' => $this->url->link('information/information', 'information_id=' . $result['information_id'])
                 );
             }
 
         }
-
 
 
         // Menu

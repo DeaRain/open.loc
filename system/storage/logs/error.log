@@ -730,3 +730,36 @@
 2019-08-20 13:54:18 - PHP Notice:  Undefined variable: total in /var/www/open.loc/html/catalog/view/theme/default/template/common/cart.tpl on line 3
 2019-08-21 11:40:36 - PHP Warning:  unlink(/var/www/open.loc/html/system/storage/cache/cache.country.status.1566313556): No such file or directory in /var/www/open.loc/html/system/library/cache/file.php on line 17
 2019-08-21 11:40:37 - PHP Warning:  unlink(/var/www/open.loc/html/system/storage/cache/cache.language.1566313328): No such file or directory in /var/www/open.loc/html/system/library/cache/file.php on line 17
+2019-08-22 12:59:20 - PHP Warning:  unlink(/var/www/open.loc/html/system/storage/cache/cache.country.status.1566476342): No such file or directory in /var/www/open.loc/html/system/library/cache/file.php on line 17
+2019-08-22 12:59:21 - PHP Warning:  unlink(/var/www/open.loc/html/system/storage/cache/cache.currency.1566476313): No such file or directory in /var/www/open.loc/html/system/library/cache/file.php on line 17
+2019-08-22 12:59:21 - PHP Warning:  unlink(/var/www/open.loc/html/system/storage/cache/cache.zone.222.1566476357): No such file or directory in /var/www/open.loc/html/system/library/cache/file.php on line 17
+2019-08-25 12:36:07 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:08 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:08 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:08 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:08 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:08 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:08 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:08 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:08 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:08 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:29 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:29 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:29 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:29 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:29 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:29 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:29 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:29 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:29 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 12:36:29 - PHP Notice:  Undefined index: parent in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_view_theme_default_template_common_header.tpl on line 134
+2019-08-25 13:01:59 - PHP Notice:  Undefined variable: result in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_controller_common_header.php on line 109
+2019-08-25 13:02:18 - PHP Notice:  Undefined variable: result in /var/www/open.loc/html/vqmod/vqcache/vq2-system_storage_modification_catalog_controller_common_header.php on line 109
+2019-08-25 13:22:17 - PHP Notice:  Undefined variable: help_myurl in /var/www/open.loc/html/admin/view/template/catalog/information_form.tpl on line 120
+2019-08-25 13:22:17 - PHP Notice:  Undefined variable: entry_myurl in /var/www/open.loc/html/admin/view/template/catalog/information_form.tpl on line 120
+2019-08-25 13:22:17 - PHP Notice:  Undefined variable: myurl in /var/www/open.loc/html/admin/view/template/catalog/information_form.tpl on line 122
+2019-08-25 13:22:17 - PHP Notice:  Undefined variable: entry_myurl in /var/www/open.loc/html/admin/view/template/catalog/information_form.tpl on line 122
+2019-08-25 13:22:17 - PHP Notice:  Undefined variable: error_myurl in /var/www/open.loc/html/admin/view/template/catalog/information_form.tpl on line 123
+2019-08-25 13:38:57 - PHP Notice:  Undefined index: sort_order in /var/www/open.loc/html/admin/controller/design/banner.php on line 386
+2019-08-25 13:38:57 - PHP Notice:  Undefined index: sort_order in /var/www/open.loc/html/admin/controller/design/banner.php on line 386
+2019-08-25 13:38:57 - PHP Notice:  Undefined index: sort_order in /var/www/open.loc/html/admin/controller/design/banner.php on line 386

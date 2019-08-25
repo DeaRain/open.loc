@@ -2,7 +2,8 @@
     <div class="our-productions">
         <div class="our-productions__top">
             <span class="our-productions__header">
-                <?php echo $heading_title; ?>
+<!--                --><?php //echo $heading_title; ?>
+                наша продукція
             </span>
             <div class="our-productions__tabs">
                 <ul class="nav">
@@ -23,10 +24,10 @@
                                         <span class="production-slider__item-name"><?php echo $product['name']; ?></span>
                                     </a>
                                     <div class="production-slider__item-control-panel">
-                                        <div class="interface-item interface-item_product-menu">
-                                            <span class="icon-heart interface-item__icon "></span>
+                                        <div class="interface-item interface-item_product-menu" onclick="wishlist.add('<?php echo $product['product_id']; ?>');" >
+                                            <span class="icon-heart interface-item__icon" ></span>
                                         </div>
-                                        <div class="interface-item interface-item_product-menu">
+                                        <div class="interface-item interface-item_product-menu" onclick="cart.add('<?php echo $product['product_id']; ?>');">
                                             <span class="icon-shopping-bag interface-item__icon"></span>
                                         </div>
                                     </div>

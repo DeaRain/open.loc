@@ -79,7 +79,7 @@ $_['entry_tag']          	 = 'Теги товара';
 $_['entry_reward']           = 'Бонусные баллы';
 $_['entry_layout']           = 'Макет';
 $_['entry_recurring']        = 'Профиль периодичности';
-$_['entry_status_new']       = 'Статус ';
+$_['entry_status_new']       = 'Статус *NEW* ';
 
 // Help
 $_['help_keyword']           = 'Должно быть уникальным на всю систему и без пробелов.';

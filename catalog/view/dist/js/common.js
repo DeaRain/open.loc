@@ -201,10 +201,10 @@ $(document).ready(function () {
         }
     });
 
-    $('.top-menu__item-url').click(function (e) {
+    $('.top-menu__item_dropdown').click(function (e) {
         if ($(window).width() < 993) {
-            $(this).parent().find('.top-menu__item-container').toggle(50);
-            $(this).parent().toggleClass('after-rotate');
+            $(this).find('.top-menu__item-container').toggle(50);
+            $(this).toggleClass('after-rotate');
         }
     });
 

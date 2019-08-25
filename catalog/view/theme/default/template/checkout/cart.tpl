@@ -30,7 +30,7 @@
 </div>
 
 
-<div class="container">
+<div class="container"
     <?php if ($attention) { ?>
         <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $attention; ?>
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -48,9 +48,10 @@
     <?php } ?>
     <div class="basket-header">Кошик</div>
     <div class="basket basket_mid">
+        <form style="w" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="basket__right">
             <div class="basket__sub-head">товари у вашому кошику</div>
-            <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+
                 <div class="basket__container">
                     <div class="basket__products">
                         <?php foreach ($products as $product) { ?>
@@ -85,7 +86,6 @@
                 <button style="width: 100%; background: none; border: 1px solid #000000; margin: 5px 0px" type="submit"
                         data-toggle="tooltip" title="<?php echo $button_update; ?>">Оновити
                 </button>
-            </form>
             <div class="basket__checkout">
                 <?php foreach ($totals as $total) { ?>
                     <div class="basket__result">
@@ -99,7 +99,7 @@
                 <div class="basket_b-right"><a href="<?php echo $checkout; ?>"><?php echo $button_checkout; ?></a></div>
             </div>
         </div>
-
+        </form>
     </div>
 </div>
 

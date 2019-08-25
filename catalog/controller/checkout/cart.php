@@ -18,6 +18,8 @@ class ControllerCheckoutCart extends Controller {
 			'text' => $this->language->get('heading_title')
 		);
 
+        $this->load->model('tool/image');
+
 		if ($this->cart->hasProducts() || !empty($this->session->data['vouchers'])) {
 			$data['heading_title'] = $this->language->get('heading_title');
 
@@ -69,7 +71,6 @@ class ControllerCheckoutCart extends Controller {
 				$data['weight'] = '';
 			}
 
-			$this->load->model('tool/image');
 			$this->load->model('tool/upload');
 
 			$data['products'] = array();

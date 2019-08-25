@@ -86,7 +86,7 @@
                 <?php endif; ?>
             </div>
         </div>
-        <div class="sing-prod__right">
+        <div id="product" class="sing-prod__right">
             <span class="sing-prod__header"><?php echo $heading_title; ?></span>
 
             <div class="sing-prod__menu">
@@ -121,7 +121,6 @@
 
             </div>
 
-            <div id="product">
                 <?php if ($options[0]) : ?>
                     <span class="sing-prod_mText"><b>Колір</b></span>
                 <?php $option = $options[0]; ?>
@@ -138,7 +137,7 @@
                 <?php endif; ?>
 
                 <?php if ($options[1]) : ?>
-                    <span class="sing-prod_mText"><b>Розмір</b></span>
+                    <span class="sing-prod_mText"><b>Розмір</b> <i class="icon-ruler"></i>таблиця розмірів </span>
                     <?php $option = $options[1]; ?>
                     <div class="sing-prod__sizes">
                         <ul>
@@ -193,7 +192,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 

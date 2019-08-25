@@ -299,49 +299,49 @@
 	display: none;
 }
 /* // TABLE ///////////////////////////////////////////////////////////////// */
-.mfilter-tb {
-	display: table;
-	width: 100%;
-}
-.mfilter-tb-as-tr {
-	display: table-row;
-}
-.mfilter-tb-as-td {
-	display: table-cell;
-	padding: 5px 0;
-	border-top: 1px dashed #dcdcdc;
-	vertical-align: middle;
-}
-label.mfilter-tb-as-td {
-	word-break: break-all;
-}
-.mfilter-tb .mfilter-tb-as-tr:first-child > .mfilter-tb-as-td,
-.mfilter-tb .mfilter-tb-as-tr.mfilter-first-child > .mfilter-tb-as-td {
-	border-top: none;
-}
-.mfilter-col-input {
-	padding-right: 4px;
-	width: 14px;
-}
-.mfilter-col-input input[type=checkbox], .mfilter-col-input input[type=radio] {
-	margin: 3px 0 2px 0;
-}
-.mfilter-select select {
-	width: 100%;
-}
-.mfilter-col-count {
-	width: 2px;
-	text-align: right;
-	padding: 3px 0;
-}
-.mfilter-tb .mfilter-tb-as-tr.mfilter-first-child .mfilter-tb-as-td,
-.mfilter-tb .mfilter-tb-as-tr:first-child .mfilter-tb-as-td {
-	padding-top: 1px;
-}
-.mfilter-tb .mfilter-tb-as-tr.mfilter-last-child .mfilter-tb-as-td,
-.mfilter-tb .mfilter-tb-as-tr:last-child .mfilter-tb-as-td {
-	padding-bottom: 1px;
-}
+/*.mfilter-tb {*/
+/*	display: table;*/
+/*	width: 100%;*/
+/*}*/
+/*.mfilter-tb-as-tr {*/
+/*	display: table-row;*/
+/*}*/
+/*.mfilter-tb-as-td {*/
+/*	display: table-cell;*/
+/*	padding: 5px 0;*/
+/*	border-top: 1px dashed #dcdcdc;*/
+/*	vertical-align: middle;*/
+/*}*/
+/*label.mfilter-tb-as-td {*/
+/*	word-break: break-all;*/
+/*}*/
+/*.mfilter-tb .mfilter-tb-as-tr:first-child > .mfilter-tb-as-td,*/
+/*.mfilter-tb .mfilter-tb-as-tr.mfilter-first-child > .mfilter-tb-as-td {*/
+/*	border-top: none;*/
+/*}*/
+/*.mfilter-col-input {*/
+/*	padding-right: 4px;*/
+/*	width: 14px;*/
+/*}*/
+/*.mfilter-col-input input[type=checkbox], .mfilter-col-input input[type=radio] {*/
+/*	margin: 3px 0 2px 0;*/
+/*}*/
+/*.mfilter-select select {*/
+/*	width: 100%;*/
+/*}*/
+/*.mfilter-col-count {*/
+/*	width: 2px;*/
+/*	text-align: right;*/
+/*	padding: 3px 0;*/
+/*}*/
+/*.mfilter-tb .mfilter-tb-as-tr.mfilter-first-child .mfilter-tb-as-td,*/
+/*.mfilter-tb .mfilter-tb-as-tr:first-child .mfilter-tb-as-td {*/
+/*	padding-top: 1px;*/
+/*}*/
+/*.mfilter-tb .mfilter-tb-as-tr.mfilter-last-child .mfilter-tb-as-td,*/
+/*.mfilter-tb .mfilter-tb-as-tr:last-child .mfilter-tb-as-td {*/
+/*	padding-bottom: 1px;*/
+/*}*/
 /* // COUNTER /////////////////////////////////////////////////////////////// */
 .mfilter-counter {
 	border-radius: 3px;

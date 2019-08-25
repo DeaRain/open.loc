@@ -1,6 +1,5 @@
 
 <div class="main-slider main-slider_full js-main-slider slider__dots_main-theme">
-
     <?php foreach ($banners as $banner) : ?>
     <div class="main-slider__item ">
         <img src="<?php echo $banner['image']; ?>" alt="<?php echo $banner['title']; ?>">
@@ -10,6 +9,16 @@
     </div>
     <?php endforeach; ?>
 </div>
+
+
+<div class="main-slider main-slider_mob js-mobile-slider slider__dots_main-theme">
+    <?php foreach ($mob_banners as $banner) : ?>
+        <div class="main-slider__item ">
+            <img src="<?php echo $banner['image']; ?>" alt="<?php echo $banner['title']; ?>">
+        </div>
+    <?php endforeach; ?>
+</div>
+
 
 <?php if(0) :?>
 
