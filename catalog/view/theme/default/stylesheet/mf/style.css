@@ -659,14 +659,15 @@ a.mfilter-button-more {
 .mfilter-free-container {
 	position: fixed;
 	top: 40px;
-	width: 220px;
-	margin-left: -238px;
+	width: 270px;
+	margin-left: -288px;
 	display: none;
 	background: #fff;
 	border: 1px solid #ccc;
 	z-index: 99999;
 	padding: 0 8px;
 }
+
 .tooltip {
 	z-index: 199999;
 }
@@ -674,14 +675,19 @@ a.mfilter-button-more {
 	margin-right: -238px;
 }
 .mfilter-free-button {
+	z-index: 2;
 	display: block;
 	position: absolute;
-	margin: 10px 0 0 228px;
+	margin: 10px 0 0 279px;
 	cursor: pointer;
 	width: 25px;
 	height: 23px;
-	border: 10px solid #428bca;
-	background: #428bca url('images/icons.png?v7') no-repeat -69px 0;
+	border: 10px solid #999999;
+	background: #999999 url('images/icons.png?v7') no-repeat -69px 0;
+	transition: margin-left 0.5s;
+}
+.mfilter-free-container-opened .mfilter-free-button{
+margin-left: 220px;
 }
 .mfilter-direction-rtl .mfilter-free-button {
 	margin: 10px 228px 0 0;

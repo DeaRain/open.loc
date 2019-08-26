@@ -11787,9 +11787,11 @@ a:visited {
 
 .my-breadcrumb {
     display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
-    padding: 21px 0px 17px; }
+    padding: 16px 0px 17px; }
 .my-breadcrumb li {
+    padding-top: 5px;
     font-family: Geometria Bold;
     margin-left: 3px;
     font-size: 12px;
@@ -11856,6 +11858,19 @@ a:visited {
     flex: 0 1 263px; }
 .catalog .catalog__right-block {
     flex: 1 1 auto; }
+
+.products__filter {
+    display: none;
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 1px solid black;
+    font-family: Geometria;
+    color: #1a1a1a;
+    width: 50px;
+    margin-left: 0px;
+    cursor: pointer; }
+.products__filter:hover {
+    color: #e83c4d; }
 
 .products {
     display: flex;
@@ -13547,7 +13562,7 @@ a:visited {
     color: #e83c4d;
     text-decoration: none; }
 .auth .auth__container .auth__left .auth__register, .auth .auth__container .auth__right .auth__register {
-    width: 360px;
+    width: 290px;
     height: 60px;
     background-color: #1a1a1a;
     margin-top: 16px; }

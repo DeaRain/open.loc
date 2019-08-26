@@ -46,6 +46,7 @@
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
     <?php } ?>
+    <div></div>
     <div class="basket-header">Кошик</div>
     <div class="basket basket_mid">
         <form style="w" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">

@@ -390,7 +390,12 @@ class ControllerProductProduct extends Controller {
 				$data['customer_name'] = '';
 			}
 
-			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
+			if((int)$product_info['reviews']){
+                $data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
+            } else {
+                $data['reviews'] = sprintf($this->language->get('text_no_reviews'), (int)$product_info['reviews']);
+
+            }
 			$data['rating'] = (int)$product_info['rating'];
 
 			// Captcha

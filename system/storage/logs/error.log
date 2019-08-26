@@ -763,3 +763,6 @@
 2019-08-25 13:38:57 - PHP Notice:  Undefined index: sort_order in /var/www/open.loc/html/admin/controller/design/banner.php on line 386
 2019-08-25 13:38:57 - PHP Notice:  Undefined index: sort_order in /var/www/open.loc/html/admin/controller/design/banner.php on line 386
 2019-08-25 13:38:57 - PHP Notice:  Undefined index: sort_order in /var/www/open.loc/html/admin/controller/design/banner.php on line 386
+2019-08-26 8:11:27 - PHP Notice:  Undefined variable: no_reviews in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 102
+2019-08-26 8:14:24 - PHP Notice:  Undefined variable: text_no_reviews in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 102
+2019-08-26 8:14:27 - PHP Notice:  Undefined variable: text_no_reviews in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 102
