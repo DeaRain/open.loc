@@ -193,6 +193,9 @@ $(document).ready(function () {
         }
     });
 
+    $('.poppup-close').click(function () {
+        $(this).parent().remove();
+    });
 
     $('.top-menu-changer').click(function () {
         if ($(window).width() < 993) {

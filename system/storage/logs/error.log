@@ -766,3 +766,9 @@
 2019-08-26 8:11:27 - PHP Notice:  Undefined variable: no_reviews in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 102
 2019-08-26 8:14:24 - PHP Notice:  Undefined variable: text_no_reviews in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 102
 2019-08-26 8:14:27 - PHP Notice:  Undefined variable: text_no_reviews in /var/www/open.loc/html/catalog/view/theme/default/template/product/product.tpl on line 102
+2019-08-27 9:55:08 - PHP Warning:  unlink(/var/www/open.loc/html/system/storage/cache/cache.currency.1566891748): No such file or directory in /var/www/open.loc/html/system/library/cache/file.php on line 17
+2019-08-27 9:55:08 - PHP Warning:  unlink(/var/www/open.loc/html/system/storage/cache/cache.currency.1566891748): No such file or directory in /var/www/open.loc/html/system/library/cache/file.php on line 17
+2019-08-27 9:55:08 - PHP Warning:  unlink(/var/www/open.loc/html/system/storage/cache/cache.language.1566891647): No such file or directory in /var/www/open.loc/html/system/library/cache/file.php on line 17
+2019-08-27 9:55:08 - PHP Warning:  unlink(/var/www/open.loc/html/system/storage/cache/cache.order_status.2.1566891729): No such file or directory in /var/www/open.loc/html/system/library/cache/file.php on line 17
+2019-08-27 10:03:12 - PHP Warning:  Use of undefined constant date - assumed 'date' (this will throw an Error in a future version of PHP) in /var/www/open.loc/html/catalog/controller/product/product.php on line 316
+2019-08-27 10:03:20 - PHP Warning:  date() expects at least 1 parameter, 0 given in /var/www/open.loc/html/catalog/controller/product/product.php on line 316

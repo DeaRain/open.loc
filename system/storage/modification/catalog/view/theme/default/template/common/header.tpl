@@ -198,6 +198,9 @@
       </div>
     </div>
 
+        <div class="popup-container">
+        </div>
+
         <div class="auth-container"></div>
 
         <div class="auth auth_hide">

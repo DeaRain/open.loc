@@ -312,6 +312,21 @@ class ControllerProductProduct extends Controller {
 				$data['price'] = false;
 			}
 
+			if($product_info['date_end'] && $product_info['date_end']!='0000-00-00') {
+//                var_dump($product_info['date_end']);
+//                var_dump(strtotime($product_info['date_end']));
+//                var_dump(time());
+
+                $time_to_end = strtotime($product_info['date_end']) - time();
+                $data['time_to_end'] = $time_to_end;
+//                $day = floor($time_to_end / 86400);
+//                $hour = floor(($time_to_end - $day * 86400) / 3600);
+//                $minute = floor(floor(($time_to_end - $day * 86400) - $hour * 3600) / 60);
+//                $sec = $time_to_end - $day * 86400 - $hour * 3600 - $minute * 60;
+//                echo(' day ' . $day . 'hour ' . $hour . 'minute ' . $minute . 'sec ' . $sec);
+            } else {
+                $data['time_to_end'] = 0;
+            }
 			if ((float)$product_info['special']) {
 				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')));
 			} else {
@@ -677,7 +692,6 @@ class ControllerProductProduct extends Controller {
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 		$recurring_info = $this->model_catalog_product->getProfile($product_id, $recurring_id);
-
 		$json = array();
 
 		if ($product_info && $recurring_info) {

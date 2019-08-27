@@ -71,10 +71,12 @@
             <div class="sing-prod__extend-info">
                 -10%
             </div>
+            <?php if ($time_to_end) :?>
             <div class="sing-prod__sale">
                 <span class="sing-prod__saleText">До кінця акції залишилось:</span>
-                <span class="sing-prod__saleTime">38:18:45</span>
+                <span class="sing-prod__saleTime">Loading..</span>
             </div>
+            <?php endif;?>
             <div class="sing-prod__slider">
                 <?php if ($thumb) : ?>
                     <img class="sing-prod__slider-img" src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
@@ -248,6 +250,21 @@
 
 
 <script type="text/javascript"><!--
+    var time_to_end = '<?php echo $time_to_end?>';
+    if(time_to_end) {
+        setInterval(function () {
+            getCountdown();
+        }, 1000);
+        function getCountdown() {
+            var day = Math.floor(time_to_end / 86400);
+            var hour = Math.floor((time_to_end - day * 86400) / 3600);
+            var minute = Math.floor(Math.floor((time_to_end - day * 86400) - hour * 3600) / 60);
+            var sec = time_to_end - day * 86400 - hour * 3600 - minute * 60;
+            time_to_end = time_to_end - 1;
+            $('.sing-prod__saleTime').text(day + ' днів ' + hour + ':' + minute + ':' + sec);
+        }
+    }
+
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 	$.ajax({
 		url: 'index.php?route=product/product/getRecurringDescription',
@@ -288,7 +305,7 @@ $('#button-cart').on('click', function() {
 				if (json['error']['option']) {
 					for (i in json['error']['option']) {
 						var element = $('#input-option' + i.replace('_', '-'));
-
+						$('.popup-container').append('<div class="my-popup">'+json['error']['option'][i]+'<span class="poppup-close icon-cross-remove-sign"></span></div>');
 						if (element.parent().hasClass('input-group')) {
 							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
 						} else {
@@ -304,22 +321,24 @@ $('#button-cart').on('click', function() {
 				// Highlight any found errors
 				$('.text-danger').parent().addClass('has-error');
 			}
+
+            $('.poppup-close').click(function () {
+                $(this).parent().remove();
+            });
 			if (json['success']) {
-                $('#cart_opp').remove();
-                $('#product').after('<div id="cart_opp" class="my-alert">' + json.success + '</div>');
-
-
 				$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
 				$('#cart > button').html('<i class="fa fa-shopping-cart"></i> ' + json['total']);
+
+                $('.popup-container').append('<div class="my-popup">'+json['success']+'<span class="poppup-close icon-cross-remove-sign"></span></div>');
 
 				// $('html, body').animate({ scrollTop: 0 }, 'slow');
 
 				$('#cart').load('index.php?route=common/cart/info');
 			}
 
-            $('#cart_opp').click(function () {
-                $('#cart_opp').toggle(100);
+            $('.poppup-close').click(function () {
+                $(this).parent().remove();
             });
 
 		},

@@ -1,6 +1,6 @@
-@media (min-width: 1199px) {
+@media (min-width: 993px) {
     .top-menu .top-menu__item:hover .top-menu__item-container {
-        display: block; } }
+        display: block !important; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
     .products__filter {
@@ -24,7 +24,6 @@
         height: 40px;
         border: solid 1px #e6e6e6;
         background: none;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -36,7 +35,6 @@
     .products .products__button_active {
         border: solid 1px #1a1a1a; }
     .products .products__header {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -79,7 +77,6 @@
         list-style-type: none;
         font-family: Geometria Bold;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -167,9 +164,7 @@
         display: flex;
         padding: 23px 0 19px; }
     .top-menu-changer .top-menu-changer__text {
-        font-family: Geometria;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -195,10 +190,11 @@
     .top-menu .top-menu__item {
         padding: 5px 0px 12px;
         position: relative; }
+    .top-menu .top-menu__item:hover .top-menu__item-container {
+        display: unset; }
     .top-menu .top-menu__item .top-menu__item-url {
         font-family: Geometria Bold;
         font-size: 12px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -238,7 +234,6 @@
         display: none; }
     .top-menu .top-menu__item-container .top-menu__item-container-inside .top-menu__item-container-item .top-menu__item-container-item-header {
         margin-top: 4px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -290,7 +285,6 @@
         margin-top: 1px;
         font-family: Geometria Bold;
         font-size: 20px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -308,7 +302,6 @@
     .our-productions .our-productions__top .our-productions__tabs a {
         font-family: Geometria Bold;
         font-size: 12px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.17;
@@ -372,9 +365,7 @@
         border-right: none; }
     .infoline .infoline__header {
         margin-bottom: 15px;
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -384,7 +375,6 @@
     .infoline .infoline__info {
         width: 219px;
         margin-bottom: 14px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -410,7 +400,6 @@
         padding: 52px 0px 26px 0px;
         font-family: Geometria Bold;
         font-size: 20px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -421,9 +410,7 @@
     .news-container .news-container__button {
         margin: 65px 0px 67px 0px; }
     .main-theme-button {
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -447,7 +434,6 @@
         width: 290px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.25;
@@ -459,7 +445,6 @@
         margin-top: 13px;
         width: 314px;
         height: 80px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -478,9 +463,7 @@
         margin-top: 6px;
         padding-top: 0px;
         padding-bottom: 49px;
-        font-family: Geometria;
         font-size: 20px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -490,7 +473,6 @@
         text-transform: uppercase; }
     .about .about__desc {
         width: 720px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: italic;
@@ -511,7 +493,6 @@
         padding: 55px 0 45px;
         font-family: Geometria Bold;
         font-size: 20px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -537,7 +518,6 @@
         margin-bottom: 12px;
         font-family: Geometria Bold;
         font-size: 18px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -557,7 +537,6 @@
         height: 60px;
         border: solid 1px #e6e6e6;
         background-color: #ffffff;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -604,7 +583,6 @@
         margin-bottom: 16px;
         font-family: Geometria Bold;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.14;
@@ -615,6 +593,7 @@
         text-decoration: none;
         color: black; }
     .footer-container .footer-container__item .menu-footer li ul {
+        display: block !important;
         list-style-type: none;
         padding: 0px;
         margin: 0px;
@@ -622,7 +601,6 @@
     .footer-container .footer-container__item .menu-footer li ul li {
         padding-bottom: 4px; }
     .footer-container .footer-container__item .menu-footer li ul li a {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -668,7 +646,6 @@
         margin-top: 45px;
         padding: 15px 0 13px; }
     .copyright-container .copyright-container__left {
-        font-family: Geometria;
         font-size: 12px;
         font-weight: normal;
         font-style: normal;
@@ -684,6 +661,8 @@
         left: 2px;
         width: 296px;
         height: 40px; }
+    .sing-prod .sing-prod__left .sing-prod__sale .sing-prod__saleTime {
+        font-size: 12px; }
     .sing-prod .sing-prod__left .sing-prod__slider {
         margin-top: 50px;
         width: 300px; }
@@ -703,7 +682,6 @@
         margin-right: 6px; }
     .sing-prod .sing-prod__right .sing-prod__menu .sing-prod__reviews div {
         margin-left: 4px;
-        font-family: Geometria;
         font-size: 12px; }
     .sing-prod .sing-prod__right .sing-prod__menu .sing_prod__favorite {
         margin-left: 20px; }
@@ -774,7 +752,6 @@
         padding: 35px 0px 26px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -789,7 +766,6 @@
         padding: 31px 0px 30px;
         font-family: Geometria Bold;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -820,7 +796,6 @@
     .basket .basket__left .basket__sel-block option, .basket .basket__right .basket__sel-block option {
         color: black; }
     .basket .basket__left .basket__sel-block span.label, .basket .basket__right .basket__sel-block span.label {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -849,7 +824,6 @@
         width: 20px;
         height: 20px; }
     .basket .basket__left .basket__checkbox label, .basket .basket__right .basket__checkbox label {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -881,7 +855,6 @@
         background-color: #ffffff; }
     .basket .basket__left .basket__input input, .basket .basket__right .basket__input input {
         padding: 23px 0px 15px 19px;
-        font-family: Geometria;
         width: 100%;
         font-size: 14px;
         font-weight: normal;
@@ -907,7 +880,6 @@
         width: 460px;
         height: 120px;
         resize: none;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -929,9 +901,7 @@
         width: 240px;
         height: 60px;
         border: solid 1px #1a1a1a;
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 61px;
@@ -976,7 +946,6 @@
         position: absolute;
         left: 130px;
         top: 15px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -994,7 +963,6 @@
         position: absolute;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1014,7 +982,6 @@
         justify-content: space-between; }
     .basket .basket__products .basket__product .basket__count .sing-prod__c-header {
         margin-top: 3px;
-        font-family: Geometria;
         font-size: 12px;
         font-weight: normal;
         font-style: normal;
@@ -1034,7 +1001,6 @@
         border: none;
         padding: 3px 0px;
         width: 66px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -1073,7 +1039,6 @@
         padding-top: 15px; }
     .basket .basket__checkout .basket__result .basket_r-left {
         margin-left: 15px;
-        font-family: Geometria;
         font-size: 16px;
         font-weight: normal;
         font-style: normal;
@@ -1085,7 +1050,6 @@
         margin-right: 15px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1099,9 +1063,7 @@
     .basket .basket__buttons .basket_b-left, .basket .basket__buttons .basket_b-right {
         width: 270px;
         height: 60px;
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1136,7 +1098,6 @@
         padding-bottom: 10px;
         font-family: Geometria Bold;
         font-size: 24px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1145,7 +1106,6 @@
         text-transform: uppercase; }
     .cat-info .cat-info__right-block .cat-info__desc {
         width: 700px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: italic;
@@ -1220,7 +1180,6 @@
         height: 40px;
         border: solid 1px #e6e6e6;
         background: none;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -1232,7 +1191,6 @@
     .products .products__button_active {
         border: solid 1px #1a1a1a; }
     .products .products__header {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -1283,7 +1241,6 @@
         list-style-type: none;
         font-family: Geometria Bold;
         font-size: 10px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1334,7 +1291,6 @@
         padding-bottom: 15px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1344,7 +1300,6 @@
     .cat-info .cat-info__right-block .cat-info__desc {
         display: none;
         width: 700px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: italic;
@@ -1375,7 +1330,6 @@
         padding: 35px 0px 26px;
         font-family: Geometria Bold;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1390,7 +1344,6 @@
         padding: 31px 0px 30px;
         font-family: Geometria Bold;
         font-size: 12px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1421,7 +1374,6 @@
     .basket .basket__left .basket__sel-block option, .basket .basket__right .basket__sel-block option {
         color: black; }
     .basket .basket__left .basket__sel-block span.label, .basket .basket__right .basket__sel-block span.label {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -1450,7 +1402,6 @@
         width: 20px;
         height: 20px; }
     .basket .basket__left .basket__checkbox label, .basket .basket__right .basket__checkbox label {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -1482,7 +1433,6 @@
         background-color: #ffffff; }
     .basket .basket__left .basket__input input, .basket .basket__right .basket__input input {
         padding: 23px 0px 15px 19px;
-        font-family: Geometria;
         width: 100%;
         font-size: 14px;
         font-weight: normal;
@@ -1508,7 +1458,6 @@
         width: 270px;
         height: 120px;
         resize: none;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -1534,9 +1483,7 @@
         margin-top: 15px;
         height: 60px;
         border: solid 1px #1a1a1a;
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 61px;
@@ -1581,7 +1528,6 @@
         position: absolute;
         left: 80px;
         top: 15px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -1599,7 +1545,6 @@
         position: absolute;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1619,7 +1564,6 @@
         justify-content: space-between; }
     .basket .basket__products .basket__product .basket__count .sing-prod__c-header {
         margin-top: 3px;
-        font-family: Geometria;
         font-size: 12px;
         font-weight: normal;
         font-style: normal;
@@ -1639,7 +1583,6 @@
         border: none;
         padding: 3px 0px;
         width: 66px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -1678,7 +1621,6 @@
         padding-top: 15px; }
     .basket .basket__checkout .basket__result .basket_r-left {
         margin-left: 15px;
-        font-family: Geometria;
         font-size: 16px;
         font-weight: normal;
         font-style: normal;
@@ -1690,7 +1632,6 @@
         margin-right: 15px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1706,9 +1647,7 @@
     .basket .basket__buttons .basket_b-left, .basket .basket__buttons .basket_b-right {
         width: 270px;
         height: 60px;
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1741,6 +1680,8 @@
         left: 0px;
         width: 300px;
         height: 40px; }
+    .sing-prod .sing-prod__left .sing-prod__sale .sing-prod__saleTime {
+        font-size: 12px; }
     .sing-prod .sing-prod__left .sing-prod__slider {
         display: none;
         margin-top: 15px;
@@ -1766,7 +1707,6 @@
         margin-right: 6px; }
     .sing-prod .sing-prod__right .sing-prod__menu .sing-prod__reviews div {
         margin-left: 4px;
-        font-family: Geometria;
         font-size: 12px; }
     .sing-prod .sing-prod__right .sing-prod__menu .sing_prod__favorite {
         padding-top: 10px;
@@ -1860,7 +1800,6 @@
     .reviews .review .review__header .review__h-left .review__name {
         font-family: Geometria Bold;
         font-size: 12px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1868,7 +1807,6 @@
         color: #1a1a1a; }
     .reviews .review .review__header .review__h-left .review__date {
         margin-left: 10px;
-        font-family: Geometria;
         font-size: 12px;
         font-weight: normal;
         font-style: normal;
@@ -1967,7 +1905,6 @@
     .header-container .header-container__left .left-menu__wrapper .left-menu__menu .left-menu li a {
         font-family: Geometria Bold;
         font-size: 12px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -1988,7 +1925,6 @@
         margin: 0px;
         margin-top: 4px; }
     .header-container .header-container__left .left-menu__wrapper .left-menu__menu .left-menu li ul.sub-menu li a {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -2061,7 +1997,6 @@
     .top-menu .top-menu__item .top-menu__item-url {
         font-family: Geometria Bold;
         font-size: 12px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2101,7 +2036,6 @@
         display: none; }
     .top-menu .top-menu__item-container .top-menu__item-container-inside .top-menu__item-container-item .top-menu__item-container-item-header {
         margin-top: 4px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -2141,7 +2075,6 @@
         margin-top: 1px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2159,7 +2092,6 @@
     .our-productions .our-productions__top .our-productions__tabs a {
         font-family: Geometria Bold;
         font-size: 12px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.17;
@@ -2227,7 +2159,6 @@
     .production-slider .production-slider__item .production-slider__item-control-panel {
         opacity: 100; }
     .production-slider .production-slider__item .production-slider__item-name {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -2241,7 +2172,6 @@
     .production-slider .production-slider__item .production-slider__item-price {
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2251,7 +2181,6 @@
     .production-slider .production-slider__item .production-slider__item-old-price {
         margin-left: 10px;
         text-decoration: line-through;
-        font-family: Geometria;
         font-size: 12px;
         font-weight: normal;
         font-style: normal;
@@ -2269,9 +2198,7 @@
         width: 45px;
         height: 45px;
         background-color: #f6f4f4;
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 45px;
@@ -2305,9 +2232,7 @@
         border-right: none; }
     .infoline .infoline__header {
         margin-bottom: 15px;
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2317,7 +2242,6 @@
     .infoline .infoline__info {
         width: 219px;
         margin-bottom: 14px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -2342,7 +2266,6 @@
         padding: 34px 0px 26px 0px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2353,9 +2276,7 @@
     .news-container .news-container__button {
         margin: 41px 0px 41px 0px; }
     .main-theme-button {
-        font-family: Geometria;
         font-size: 12px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2382,7 +2303,6 @@
         width: 290px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.25;
@@ -2394,7 +2314,6 @@
         margin-top: 13px;
         width: 290px;
         height: 80px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -2421,9 +2340,7 @@
     .about .about__header {
         margin-top: 5px;
         padding-bottom: 28px;
-        font-family: Geometria;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2453,7 +2370,6 @@
         padding: 34px 0 26px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2479,7 +2395,6 @@
         margin-bottom: 12px;
         font-family: Geometria Bold;
         font-size: 12px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2498,7 +2413,6 @@
         height: 50px;
         border: solid 1px #e6e6e6;
         background-color: #ffffff;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -2561,7 +2475,6 @@
     .footer-container .footer-container__item .menu-footer li a {
         font-family: Geometria Bold;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.14;
@@ -2583,7 +2496,6 @@
         margin: 0px;
         margin-top: 9px; }
     .footer-container .footer-container__item .menu-footer li ul.sub-menu li a {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -2612,7 +2524,6 @@
         margin-top: 0px;
         padding: 21px 0 35px; }
     .copyright-container .copyright-container__left {
-        font-family: Geometria;
         font-size: 12px;
         font-weight: normal;
         font-style: normal;
@@ -2624,6 +2535,10 @@
         margin-top: 25px; } }
 
 @media (min-width: 1200px) {
+    .top-menu {
+        display: flex !important; }
+    .menu-footer li ul {
+        display: block !important; }
     .catalog__left-block {
         display: flex !important; }
     .container {
@@ -2649,7 +2564,6 @@
         height: 40px;
         border: solid 1px #e6e6e6;
         background: none;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -2661,7 +2575,6 @@
     .products .products__button_active {
         border: solid 1px #1a1a1a; }
     .products .products__header {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -2707,7 +2620,6 @@
         list-style-type: none;
         font-family: Geometria Bold;
         font-size: 12px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2770,7 +2682,6 @@
         padding-bottom: 10px;
         font-family: Geometria Bold;
         font-size: 24px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2779,7 +2690,6 @@
         text-transform: uppercase; }
     .cat-info .cat-info__right-block .cat-info__desc {
         width: 400px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: italic;
@@ -2804,6 +2714,8 @@
         left: 20px;
         width: 350px;
         height: 40px; }
+    .sing-prod .sing-prod__left .sing-prod__sale .sing-prod__saleTime {
+        font-size: 12px; }
     .sing-prod .sing-prod__left .sing-prod__slider {
         margin-top: 15px;
         width: 390px; }
@@ -2823,7 +2735,6 @@
         margin-right: 6px; }
     .sing-prod .sing-prod__right .sing-prod__menu .sing-prod__reviews div {
         margin-left: 4px;
-        font-family: Geometria;
         font-size: 12px; }
     .sing-prod .sing-prod__right .sing-prod__menu .sing_prod__favorite {
         margin-left: 20px; }
@@ -2902,7 +2813,6 @@
         padding: 35px 0px 26px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2917,7 +2827,6 @@
         padding: 31px 0px 30px;
         font-family: Geometria Bold;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -2948,7 +2857,6 @@
     .basket .basket__left .basket__sel-block option, .basket .basket__right .basket__sel-block option {
         color: black; }
     .basket .basket__left .basket__sel-block span.label, .basket .basket__right .basket__sel-block span.label {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -2977,7 +2885,6 @@
         width: 20px;
         height: 20px; }
     .basket .basket__left .basket__checkbox label, .basket .basket__right .basket__checkbox label {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3009,7 +2916,6 @@
         background-color: #ffffff; }
     .basket .basket__left .basket__input input, .basket .basket__right .basket__input input {
         padding: 23px 0px 15px 19px;
-        font-family: Geometria;
         width: 100%;
         font-size: 14px;
         font-weight: normal;
@@ -3035,7 +2941,6 @@
         width: 395px;
         height: 120px;
         resize: none;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3057,9 +2962,7 @@
         width: 240px;
         height: 60px;
         border: solid 1px #1a1a1a;
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 61px;
@@ -3104,7 +3007,6 @@
         position: absolute;
         left: 120px;
         top: 15px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3122,7 +3024,6 @@
         position: absolute;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -3142,7 +3043,6 @@
         justify-content: space-between; }
     .basket .basket__products .basket__product .basket__count .sing-prod__c-header {
         margin-top: 3px;
-        font-family: Geometria;
         font-size: 12px;
         font-weight: normal;
         font-style: normal;
@@ -3162,7 +3062,6 @@
         border: none;
         padding: 3px 0px;
         width: 66px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3201,7 +3100,6 @@
         padding-top: 15px; }
     .basket .basket__checkout .basket__result .basket_r-left {
         margin-left: 15px;
-        font-family: Geometria;
         font-size: 16px;
         font-weight: normal;
         font-style: normal;
@@ -3213,7 +3111,6 @@
         margin-right: 15px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -3229,9 +3126,7 @@
     .basket .basket__buttons .basket_b-left, .basket .basket__buttons .basket_b-right {
         width: 270px;
         height: 60px;
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -3251,6 +3146,10 @@
         margin-left: 0px; } }
 
 @media (min-width: 993px) and (max-width: 1199px) {
+    .top-menu {
+        display: flex !important; }
+    .menu-footer li ul {
+        display: block !important; }
     .container {
         max-width: 970px; }
     .catalog__left-block {
@@ -3279,9 +3178,7 @@
         border-right: none; }
     .infoline .infoline__header {
         margin-bottom: 15px;
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -3291,7 +3188,6 @@
     .infoline .infoline__info {
         width: 219px;
         margin-bottom: 14px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3359,7 +3255,7 @@
     .sing-prod .sing-prod__left .sing-prod__sale {
         top: 390px;
         left: 15px;
-        width: 400px;
+        width: 420px;
         height: 40px; }
     .sing-prod .sing-prod__left .sing-prod__slider {
         margin-top: 15px;
@@ -3415,7 +3311,6 @@
         padding: 35px 0px 26px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -3430,7 +3325,6 @@
         padding: 31px 0px 30px;
         font-family: Geometria Bold;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -3461,7 +3355,6 @@
     .basket .basket__left .basket__sel-block option, .basket .basket__right .basket__sel-block option {
         color: black; }
     .basket .basket__left .basket__sel-block span.label, .basket .basket__right .basket__sel-block span.label {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3490,7 +3383,6 @@
         width: 20px;
         height: 20px; }
     .basket .basket__left .basket__checkbox label, .basket .basket__right .basket__checkbox label {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3522,7 +3414,6 @@
         background-color: #ffffff; }
     .basket .basket__left .basket__input input, .basket .basket__right .basket__input input {
         padding: 23px 0px 15px 19px;
-        font-family: Geometria;
         width: 100%;
         font-size: 14px;
         font-weight: normal;
@@ -3548,7 +3439,6 @@
         width: 410px;
         height: 120px;
         resize: none;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3570,9 +3460,7 @@
         width: 240px;
         height: 60px;
         border: solid 1px #1a1a1a;
-        font-family: Geometria;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 61px;
@@ -3617,7 +3505,6 @@
         position: absolute;
         left: 130px;
         top: 15px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3635,7 +3522,6 @@
         position: absolute;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -3655,7 +3541,6 @@
         justify-content: space-between; }
     .basket .basket__products .basket__product .basket__count .sing-prod__c-header {
         margin-top: 3px;
-        font-family: Geometria;
         font-size: 12px;
         font-weight: normal;
         font-style: normal;
@@ -3675,7 +3560,6 @@
         border: none;
         padding: 3px 0px;
         width: 66px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3714,7 +3598,6 @@
         padding-top: 15px; }
     .basket .basket__checkout .basket__result .basket_r-left {
         margin-left: 15px;
-        font-family: Geometria;
         font-size: 16px;
         font-weight: normal;
         font-style: normal;
@@ -3726,7 +3609,6 @@
         margin-right: 15px;
         font-family: Geometria Bold;
         font-size: 16px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -3740,9 +3622,7 @@
     .basket .basket__buttons .basket_b-left, .basket .basket__buttons .basket_b-right {
         width: 215px;
         height: 60px;
-        font-family: Geometria;
         font-size: 10px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -3774,7 +3654,6 @@
         padding-bottom: 10px;
         font-family: Geometria Bold;
         font-size: 24px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
@@ -3783,7 +3662,6 @@
         text-transform: uppercase; }
     .cat-info .cat-info__right-block .cat-info__desc {
         width: 500px;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: italic;
@@ -3808,7 +3686,6 @@
         height: 40px;
         border: solid 1px #e6e6e6;
         background: none;
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3820,7 +3697,6 @@
     .products .products__button_active {
         border: solid 1px #1a1a1a; }
     .products .products__header {
-        font-family: Geometria;
         font-size: 14px;
         font-weight: normal;
         font-style: normal;
@@ -3864,7 +3740,6 @@
         list-style-type: none;
         font-family: Geometria Bold;
         font-size: 14px;
-        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1;
