@@ -71,7 +71,7 @@
                                         <span class="production-slider__item-old-price"><?php echo $product['special']; ?> </span>
                                     </div>
                                     <div class="production-slider_extend-info">
-                                        <?php echo number_format(100 - (float)$product['special'] / (float)$product['price'] * 100).'%';?>
+                                        <?php echo '-'. number_format(100 - (float)$product['special'] / (float)$product['price'] * 100).'%';?>
                                     </div>
                                 </div>
                             <?php endif; ?>

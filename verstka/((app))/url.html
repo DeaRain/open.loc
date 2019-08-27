@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/media.css" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+
+//= partials/header.html
+
+<div class="container" style="margin: 60px 0px 60px 200px">
+    <H1>Посилання на сторінки</H1>
+    <ul>
+        <li><a href="/index1.html">Головна</a></li>
+        <li><a href="/category.html">Категорії</a></li>
+        <li><a href="/product.html">Сторінка товару</a></li>
+        <li><a href="/basket.html">Кошик</a></li>
+    </ul>
+</div>
+
+//= partials/footer.html
+
+<script src="js/lib.js"></script>
+<script src="js/common.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+
+
+
+
+        $('.top-menu__item_dropdown').click(function (e) {
+            if ($(window).width() < 993) {
+                console.log("+++");
+                $(this).find('.top-menu__item-container').toggle(50);
+                $(this).toggleClass('after-rotate');
+            }
+        });
+
+        $('#auth_menu').click(function () {
+            // $('.auth').toggle();
+            $('.auth').toggleClass('auth_hide');
+            $('.auth-container').animate({height: "100vh", top: "0px"}, 300);
+            $('.auth').animate({opacity: "1"}, 400);
+        });
+
+        $('.auth-container').click(function () {
+            $('.auth').animate({opacity: "0"}, 300);
+            $('.auth-container').animate({height: "0px", top: "50vh"}, 300);
+            $('.auth-container').animate({top: "0vh"}, 1);
+            function authHide (){
+                $('.auth').toggleClass('auth_hide');
+            }
+            setTimeout(authHide, 300);
+        });
+
+        $('#auth_close').click(function () {
+            $('.auth').animate({opacity: "0"}, 300);
+            $('.auth-container').animate({height: "0px", top: "50vh"}, 300);
+            $('.auth-container').animate({top: "0vh"}, 1);
+            function authHide (){
+                $('.auth').toggleClass('auth_hide');
+            }
+            setTimeout(authHide, 300);
+        });
+
+    });
+</script>
+</body>
+
+</html>
